@@ -1,8 +1,6 @@
-@'
 {
     "version": "1.0.2",
     "setup_url": "https://github.com/MassMirko/IlMioRicettario/releases/latest/download/IlMioRicettario_Setup.exe",
     "sha256": "",
     "notes": "Aggiornamento alla versione 1.0.2"
 }
-'@ | Set-Content ".\aggiornamento.json" -Encoding UTF8
