@@ -1,6 +1,6 @@
 ﻿{
-  "version": "0.1.1",
-  "version_code": 2,
-  "apk_url": "https://github.com/MassMirko/IlMioRicettario/releases/download/v0.1.1-test/IlMioRicettario-v0.1.1-test.apk",
-  "notes": "Nuova icona ufficiale e nuovo sfondo personalizzato della Home."
+  "version": "0.1.2-test",
+  "version_code": 3,
+  "apk_url": "https://github.com/MassMirko/IlMioRicettario/releases/download/v0.1.2-test/IlMioRicettario-v0.1.2-test.apk",
+  "notes": "Aggiunto il controllo automatico degli aggiornamenti dell'app Android."
 }
