@@ -23,19 +23,23 @@ jobs:
       - name: Scarica repository
         uses: actions/checkout@v4
 
-      - name: Estrai ricetta e aggiorna archivio
+      - name: Estrai ricetta salva foto e aggiorna archivio
         env:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           ISSUE_BODY: ${{ github.event.issue.body }}
+          REPOSITORY: ${{ github.repository }}
         run: |
           python3 <<'PY'
           import json
           import os
           import re
+          import urllib.request
           from datetime import datetime, timezone
+          from pathlib import Path
 
           body = os.environ.get("ISSUE_BODY", "")
           issue_number = int(os.environ["ISSUE_NUMBER"])
+          repository = os.environ["REPOSITORY"]
 
           def campo(nome, successivo=None):
               if successivo:
@@ -53,8 +57,6 @@ jobs:
               if not testo:
                   return ""
 
-              # Formato HTML generato da GitHub:
-              # <img ... src="https://github.com/user-attachments/assets/..." />
               m = re.search(
                   r'<img[^>]+src=["\']([^"\']+)["\']',
                   testo,
@@ -63,8 +65,6 @@ jobs:
               if m:
                   return m.group(1).strip()
 
-              # Formato Markdown:
-              # ![descrizione](https://...)
               m = re.search(
                   r'!\[[^\]]*\]\((https?://[^)\s]+)\)',
                   testo,
@@ -73,7 +73,6 @@ jobs:
               if m:
                   return m.group(1).strip()
 
-              # Ultima possibilità: URL diretto
               m = re.search(
                   r'https?://github\.com/user-attachments/assets/[^\s<>"\']+',
                   testo,
@@ -81,6 +80,29 @@ jobs:
               )
               if m:
                   return m.group(0).strip()
+
+              return ""
+
+          def estensione_immagine(dati):
+              # JPEG
+              if dati.startswith(b"\xff\xd8\xff"):
+                  return ".jpg"
+
+              # PNG
+              if dati.startswith(b"\x89PNG\r\n\x1a\n"):
+                  return ".png"
+
+              # GIF
+              if dati.startswith(b"GIF87a") or dati.startswith(b"GIF89a"):
+                  return ".gif"
+
+              # WEBP
+              if (
+                  len(dati) >= 12
+                  and dati[0:4] == b"RIFF"
+                  and dati[8:12] == b"WEBP"
+              ):
+                  return ".webp"
 
               return ""
 
@@ -144,7 +166,7 @@ jobs:
               "Conferma pubblicazione"
           )
 
-          foto_url = estrai_foto(foto)
+          foto_originale = estrai_foto(foto)
 
           if not nome or not ingredienti or not preparazione:
               raise SystemExit(
@@ -152,17 +174,86 @@ jobs:
                   "obbligatori della ricetta."
               )
 
-          percorso = "community/ricette.json"
+          percorso_json = "community/ricette.json"
 
-          with open(percorso, "r", encoding="utf-8") as f:
+          with open(percorso_json, "r", encoding="utf-8") as f:
               archivio = json.load(f)
 
           ricette = archivio.setdefault("ricette", [])
 
-          # Evita doppia pubblicazione della stessa Issue
           if any(r.get("issue") == issue_number for r in ricette):
               print("Questa Issue risulta già pubblicata.")
               raise SystemExit(0)
+
+          foto_url = ""
+          foto_percorso = ""
+
+          if foto_originale:
+              print("Foto allegata:", foto_originale)
+
+              richiesta = urllib.request.Request(
+                  foto_originale,
+                  headers={
+                      "User-Agent": "IlMioRicettario-GitHubAction",
+                      "Accept": "image/*"
+                  }
+              )
+
+              try:
+                  with urllib.request.urlopen(
+                      richiesta,
+                      timeout=30
+                  ) as risposta:
+                      dati_foto = risposta.read()
+
+                  estensione = estensione_immagine(dati_foto)
+
+                  if not estensione:
+                      raise ValueError(
+                          "Il file scaricato non è un'immagine supportata."
+                      )
+
+                  cartella_immagini = Path("community/immagini")
+                  cartella_immagini.mkdir(
+                      parents=True,
+                      exist_ok=True
+                  )
+
+                  nome_file = (
+                      f"ricetta_{issue_number}{estensione}"
+                  )
+
+                  destinazione = (
+                      cartella_immagini / nome_file
+                  )
+
+                  with open(destinazione, "wb") as f:
+                      f.write(dati_foto)
+
+                  foto_percorso = (
+                      f"community/immagini/{nome_file}"
+                  )
+
+                  foto_url = (
+                      "https://raw.githubusercontent.com/"
+                      f"{repository}/main/"
+                      f"{foto_percorso}"
+                  )
+
+                  print(
+                      "Foto salvata nel repository:",
+                      foto_percorso
+                  )
+
+              except Exception as errore:
+                  # La ricetta viene comunque pubblicata.
+                  # Manteniamo l'URL originale della foto.
+                  print(
+                      "ATTENZIONE: impossibile copiare la foto:",
+                      errore
+                  )
+
+                  foto_url = foto_originale
 
           adesso = datetime.now(
               timezone.utc
@@ -183,6 +274,8 @@ jobs:
               "difficolta": difficolta,
               "note": note,
               "foto_url": foto_url,
+              "foto_originale": foto_originale,
+              "foto_percorso": foto_percorso,
               "video_link": "",
               "data_pubblicazione": adesso
           }
@@ -191,7 +284,7 @@ jobs:
 
           archivio["ultimo_aggiornamento"] = adesso
 
-          with open(percorso, "w", encoding="utf-8") as f:
+          with open(percorso_json, "w", encoding="utf-8") as f:
               json.dump(
                   archivio,
                   f,
@@ -201,26 +294,22 @@ jobs:
 
           print("Pubblicata:", nome)
 
-          if foto_url:
-              print("Foto trovata:", foto_url)
-          else:
-              print("Nessuna foto allegata.")
-
           PY
 
       - name: Pubblica modifica nel repository
         run: |
-          if git diff --quiet; then
+          if git status --porcelain | grep -q .; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+            git add community/ricette.json
+            git add community/immagini 2>/dev/null || true
+
+            git commit -m "Pubblica ricetta #${{ github.event.issue.number }}"
+            git push
+          else
             echo "Nessuna modifica da pubblicare."
-            exit 0
           fi
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add community/ricette.json
-          git commit -m "Pubblica ricetta #${{ github.event.issue.number }}"
-          git push
 
       - name: Aggiorna e chiudi la richiesta
         uses: actions/github-script@v7
