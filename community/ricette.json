@@ -1,17 +1,5 @@
 {
   "versione": 1,
   "ultimo_aggiornamento": "2026-10-05T09:04:13+00:00",
-  "ricette": [
-    {
-      "id": 1,
-      "issue": 1,
-      "nome": "TEST COMMUNITY",
-      "autore": "Mirko",
-      "tipo_piatto": "Primi",
-      "ingredienti": "100 g pasta\n1 cucchiaio olio",
-      "preparazione": "Questa è una ricetta di prova.",
-      "note": "Test sistema Community",
-      "data_pubblicazione": "2026-10-05T09:04:13+00:00"
-    }
-  ]
+  "ricette": []
 }
