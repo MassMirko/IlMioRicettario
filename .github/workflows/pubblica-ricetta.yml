@@ -51,7 +51,17 @@ jobs:
                   pattern = rf"### {re.escape(nome)}\s*\n(.*)"
 
               m = re.search(pattern, body, re.S)
-              return m.group(1).strip() if m else ""
+
+              if not m:
+                  return ""
+
+              valore = m.group(1).strip()
+
+              # GitHub usa questo testo nei campi facoltativi vuoti.
+              if valore in ("_No response_", "No response"):
+                  return ""
+
+              return valore
 
           def estrai_foto(testo):
               if not testo:
@@ -84,19 +94,15 @@ jobs:
               return ""
 
           def estensione_immagine(dati):
-              # JPEG
               if dati.startswith(b"\xff\xd8\xff"):
                   return ".jpg"
 
-              # PNG
               if dati.startswith(b"\x89PNG\r\n\x1a\n"):
                   return ".png"
 
-              # GIF
               if dati.startswith(b"GIF87a") or dati.startswith(b"GIF89a"):
                   return ".gif"
 
-              # WEBP
               if (
                   len(dati) >= 12
                   and dati[0:4] == b"RIFF"
@@ -123,6 +129,11 @@ jobs:
 
           ingrediente_principale = campo(
               "Ingrediente principale",
+              "Regione"
+          )
+
+          regione = campo(
+              "Regione",
               "Ingredienti"
           )
 
@@ -219,13 +230,8 @@ jobs:
                       exist_ok=True
                   )
 
-                  nome_file = (
-                      f"ricetta_{issue_number}{estensione}"
-                  )
-
-                  destinazione = (
-                      cartella_immagini / nome_file
-                  )
+                  nome_file = f"ricetta_{issue_number}{estensione}"
+                  destinazione = cartella_immagini / nome_file
 
                   with open(destinazione, "wb") as f:
                       f.write(dati_foto)
@@ -246,8 +252,6 @@ jobs:
                   )
 
               except Exception as errore:
-                  # La ricetta viene comunque pubblicata.
-                  # Manteniamo l'URL originale della foto.
                   print(
                       "ATTENZIONE: impossibile copiare la foto:",
                       errore
@@ -266,6 +270,7 @@ jobs:
               "autore": autore,
               "tipo_piatto": tipo,
               "ingrediente_principale": ingrediente_principale,
+              "regione": regione,
               "ingredienti": ingredienti,
               "preparazione": preparazione,
               "tempo_preparazione": tempo_preparazione,
@@ -293,6 +298,7 @@ jobs:
               )
 
           print("Pubblicata:", nome)
+          print("Regione:", regione if regione else "non specificata")
 
           PY
 
