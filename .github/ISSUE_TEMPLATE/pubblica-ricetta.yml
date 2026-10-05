@@ -1,0 +1,74 @@
+name: "🍴 Pubblica una ricetta"
+description: "Invia una ricetta a Il Mio Ricettario per l'approvazione"
+title: "[RICETTA] "
+labels:
+  - "ricetta-da-approvare"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🍴 IL MIO RICETTARIO
+        Invia qui la tua ricetta.
+
+        La ricetta sarà pubblicata nella Community solo dopo
+        l'approvazione dell'amministratore.
+
+  - type: input
+    id: autore
+    attributes:
+      label: "Nome o nickname"
+      placeholder: "Es. Mirko"
+    validations:
+      required: true
+
+  - type: input
+    id: nome
+    attributes:
+      label: "Nome della ricetta"
+      placeholder: "Es. Spaghetti alle vongole"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: "Tipo di piatto"
+      options:
+        - Antipasti
+        - Primi
+        - Secondi
+        - Contorni
+        - Dolci
+        - Altro
+    validations:
+      required: true
+
+  - type: textarea
+    id: ingredienti
+    attributes:
+      label: "Ingredienti"
+      placeholder: "Inserisci gli ingredienti..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: preparazione
+    attributes:
+      label: "Preparazione"
+      placeholder: "Descrivi la preparazione..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: note
+    attributes:
+      label: "Note"
+      placeholder: "Eventuali note o consigli..."
+
+  - type: checkboxes
+    id: conferma
+    attributes:
+      label: "Conferma"
+      options:
+        - label: "Confermo di voler proporre questa ricetta per la pubblicazione nella Community."
+          required: true
