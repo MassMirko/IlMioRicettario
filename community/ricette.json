@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "ultimo_aggiornamento": "2026-10-05T11:19:43+00:00",
+  "ultimo_aggiornamento": "2026-10-05T16:13:34+00:00",
   "ricette": [
     {
       "id": 5,
@@ -22,6 +22,27 @@
       "foto_percorso": "community/immagini/ricetta_5.png",
       "video_link": "",
       "data_pubblicazione": "2026-10-05T11:19:43+00:00"
+    },
+    {
+      "id": 6,
+      "issue": 6,
+      "nome": "FISH & ZUCCHÌPS",
+      "autore": "Mirko",
+      "tipo_piatto": "Secondi",
+      "ingrediente_principale": "Pesce",
+      "regione": "",
+      "ingredienti": "400 g filetti merluzzo\nfarina 0\n200 ml birra bionda ghiacciata\nsale\nolio per friggere\n1 limone\n2 zucchine\nacqua frizzante ghiacciata q.b.",
+      "preparazione": "1. Lavare le zucchine e tagliarle uniformi a bastoncini. Tamponarle molto bene con carta da cucina. Preparare una pastella con farina, un pizzico di sale e acqua frizzante ghiacciata, fino ad ottenere una consistenza abbastanza fluida da avvolgere le zucchine senza creare una corazza da carro armato. Immergere le zucchine nella pastella e friggerle in olio caldo a circa 175-180°C, poche alla volta. Quando sono dorate e croccanti, scolarle e lasciarle su carta assorbente. Sale immediatamente.\n⚠️ Attenzione: queste non sono più zucchine.\nSono diventate ufficialmente ZUCCHÌPS.\nDa questo momento in poi vanno trattate con rispetto. 😂\n2. Prepariamo il FISH: asciugare i filetti di merluzzo.\nIn una ciotola mescolare la farina con il sale q.b. Versare lentamente la birra ghiacciata, mescolando fino ad ottenere una pastella liscia e piuttosto densa. Non lavorarla troppo. La pastella deve essere freddissima. Passare ogni pezzo di pesce nella pastella, facendolo ricoprire completamente. Friggere a circa 175-180°C fino a quando il rivestimento sarà gonfio, dorato e croccantissimo. Scolare e salare a piacere.\n3. Impiattare i pezzi di FISH insieme alle nostre gloriose ZUCCHÌPS. Aggiungere qualche spicchio di limone.",
+      "tempo_preparazione": "",
+      "tempo_cottura": "",
+      "persone": "2",
+      "difficolta": "Media",
+      "note": "",
+      "foto_url": "https://raw.githubusercontent.com/MassMirko/IlMioRicettario/main/community/immagini/ricetta_6.jpg",
+      "foto_originale": "https://github.com/user-attachments/assets/c514ed0a-1295-4658-a2d6-b5431c3ff09f",
+      "foto_percorso": "community/immagini/ricetta_6.jpg",
+      "video_link": "",
+      "data_pubblicazione": "2026-10-05T16:13:34+00:00"
     }
   ]
 }
