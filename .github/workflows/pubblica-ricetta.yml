@@ -49,16 +49,65 @@ jobs:
               m = re.search(pattern, body, re.S)
               return m.group(1).strip() if m else ""
 
-          autore = campo("Nome o nickname", "Nome della ricetta")
-          nome = campo("Nome della ricetta", "Tipo di piatto")
-          tipo = campo("Tipo di piatto", "Ingredienti")
-          ingredienti = campo("Ingredienti", "Preparazione")
-          preparazione = campo("Preparazione", "Note")
-          note = campo("Note", "Conferma")
+          autore = campo(
+              "Nome o nickname",
+              "Nome della ricetta"
+          )
+
+          nome = campo(
+              "Nome della ricetta",
+              "Tipo di piatto"
+          )
+
+          tipo = campo(
+              "Tipo di piatto",
+              "Ingrediente principale"
+          )
+
+          ingrediente_principale = campo(
+              "Ingrediente principale",
+              "Ingredienti"
+          )
+
+          ingredienti = campo(
+              "Ingredienti",
+              "Preparazione"
+          )
+
+          preparazione = campo(
+              "Preparazione",
+              "Tempo di preparazione"
+          )
+
+          tempo_preparazione = campo(
+              "Tempo di preparazione",
+              "Tempo di cottura"
+          )
+
+          tempo_cottura = campo(
+              "Tempo di cottura",
+              "Numero di persone"
+          )
+
+          persone = campo(
+              "Numero di persone",
+              "Difficoltà"
+          )
+
+          difficolta = campo(
+              "Difficoltà",
+              "Note e consigli"
+          )
+
+          note = campo(
+              "Note e consigli",
+              "Conferma pubblicazione"
+          )
 
           if not nome or not ingredienti or not preparazione:
               raise SystemExit(
-                  "ERRORE: impossibile leggere i campi obbligatori della ricetta."
+                  "ERRORE: impossibile leggere i campi "
+                  "obbligatori della ricetta."
               )
 
           percorso = "community/ricette.json"
@@ -68,7 +117,7 @@ jobs:
 
           ricette = archivio.setdefault("ricette", [])
 
-          # Evita di pubblicare due volte la stessa Issue.
+          # Evita di pubblicare due volte la stessa Issue
           if any(r.get("issue") == issue_number for r in ricette):
               print("Questa Issue risulta già pubblicata.")
               raise SystemExit(0)
@@ -79,9 +128,16 @@ jobs:
               "nome": nome,
               "autore": autore,
               "tipo_piatto": tipo,
+              "ingrediente_principale": ingrediente_principale,
               "ingredienti": ingredienti,
               "preparazione": preparazione,
+              "tempo_preparazione": tempo_preparazione,
+              "tempo_cottura": tempo_cottura,
+              "persone": persone,
+              "difficolta": difficolta,
               "note": note,
+              "foto_url": "",
+              "video_link": "",
               "data_pubblicazione": datetime.now(
                   timezone.utc
               ).isoformat(timespec="seconds")
