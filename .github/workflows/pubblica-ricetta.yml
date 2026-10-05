@@ -49,6 +49,41 @@ jobs:
               m = re.search(pattern, body, re.S)
               return m.group(1).strip() if m else ""
 
+          def estrai_foto(testo):
+              if not testo:
+                  return ""
+
+              # Formato HTML generato da GitHub:
+              # <img ... src="https://github.com/user-attachments/assets/..." />
+              m = re.search(
+                  r'<img[^>]+src=["\']([^"\']+)["\']',
+                  testo,
+                  re.I
+              )
+              if m:
+                  return m.group(1).strip()
+
+              # Formato Markdown:
+              # ![descrizione](https://...)
+              m = re.search(
+                  r'!\[[^\]]*\]\((https?://[^)\s]+)\)',
+                  testo,
+                  re.I
+              )
+              if m:
+                  return m.group(1).strip()
+
+              # Ultima possibilità: URL diretto
+              m = re.search(
+                  r'https?://github\.com/user-attachments/assets/[^\s<>"\']+',
+                  testo,
+                  re.I
+              )
+              if m:
+                  return m.group(0).strip()
+
+              return ""
+
           autore = campo(
               "Nome o nickname",
               "Nome della ricetta"
@@ -101,8 +136,15 @@ jobs:
 
           note = campo(
               "Note e consigli",
+              "Foto della ricetta"
+          )
+
+          foto = campo(
+              "Foto della ricetta",
               "Conferma pubblicazione"
           )
+
+          foto_url = estrai_foto(foto)
 
           if not nome or not ingredienti or not preparazione:
               raise SystemExit(
@@ -117,10 +159,14 @@ jobs:
 
           ricette = archivio.setdefault("ricette", [])
 
-          # Evita di pubblicare due volte la stessa Issue
+          # Evita doppia pubblicazione della stessa Issue
           if any(r.get("issue") == issue_number for r in ricette):
               print("Questa Issue risulta già pubblicata.")
               raise SystemExit(0)
+
+          adesso = datetime.now(
+              timezone.utc
+          ).isoformat(timespec="seconds")
 
           nuova_ricetta = {
               "id": issue_number,
@@ -136,18 +182,14 @@ jobs:
               "persone": persone,
               "difficolta": difficolta,
               "note": note,
-              "foto_url": "",
+              "foto_url": foto_url,
               "video_link": "",
-              "data_pubblicazione": datetime.now(
-                  timezone.utc
-              ).isoformat(timespec="seconds")
+              "data_pubblicazione": adesso
           }
 
           ricette.append(nuova_ricetta)
 
-          archivio["ultimo_aggiornamento"] = datetime.now(
-              timezone.utc
-          ).isoformat(timespec="seconds")
+          archivio["ultimo_aggiornamento"] = adesso
 
           with open(percorso, "w", encoding="utf-8") as f:
               json.dump(
@@ -158,6 +200,12 @@ jobs:
               )
 
           print("Pubblicata:", nome)
+
+          if foto_url:
+              print("Foto trovata:", foto_url)
+          else:
+              print("Nessuna foto allegata.")
+
           PY
 
       - name: Pubblica modifica nel repository
