@@ -177,7 +177,13 @@ jobs:
               "Conferma pubblicazione"
           )
 
+          # Cerca prima la foto nel campo dedicato.
+          # Se GitHub ha inserito l'allegato in un altro punto della Issue,
+          # la cerca automaticamente nell'intero testo.
           foto_originale = estrai_foto(foto)
+
+          if not foto_originale:
+          foto_originale = estrai_foto(body)
 
           if not nome or not ingredienti or not preparazione:
               raise SystemExit(
