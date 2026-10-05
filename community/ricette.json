@@ -1,5 +1,24 @@
 {
   "versione": 1,
-  "ultimo_aggiornamento": "2026-10-05T09:04:13+00:00",
-  "ricette": []
+  "ultimo_aggiornamento": "2026-10-05T09:22:58+00:00",
+  "ricette": [
+    {
+      "id": 2,
+      "issue": 2,
+      "nome": "TEST COMMUNITY 2",
+      "autore": "Mirko",
+      "tipo_piatto": "Primi",
+      "ingrediente_principale": "Pasta",
+      "ingredienti": "200 g spaghetti\n100 g pomodorini\nOlio extravergine d'oliva",
+      "preparazione": "Cuocere gli spaghetti e condirli con i pomodorini.",
+      "tempo_preparazione": "10",
+      "tempo_cottura": "12",
+      "persone": "2",
+      "difficolta": "Facile",
+      "note": "Ricetta utilizzata per il test della Community.",
+      "foto_url": "",
+      "video_link": "",
+      "data_pubblicazione": "2026-10-05T09:22:58+00:00"
+    }
+  ]
 }
