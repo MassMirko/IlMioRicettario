@@ -3,14 +3,16 @@ description: "Invia una ricetta a Il Mio Ricettario per l'approvazione"
 title: "[RICETTA] "
 labels:
   - "ricetta-da-approvare"
+
 body:
   - type: markdown
     attributes:
       value: |
         ## 🍴 IL MIO RICETTARIO
-        Invia qui la tua ricetta.
 
-        La ricetta sarà pubblicata nella Community solo dopo
+        Proponi una ricetta per la Community.
+
+        La ricetta sarà pubblicata solamente dopo
         l'approvazione dell'amministratore.
 
   - type: input
@@ -38,16 +40,28 @@ body:
         - Primi
         - Secondi
         - Contorni
+        - Piatti unici
         - Dolci
         - Altro
     validations:
       required: true
 
+  - type: input
+    id: ingrediente_principale
+    attributes:
+      label: "Ingrediente principale"
+      placeholder: "Es. Pasta"
+
   - type: textarea
     id: ingredienti
     attributes:
       label: "Ingredienti"
-      placeholder: "Inserisci gli ingredienti..."
+      placeholder: |
+        Es.
+        200 g spaghetti
+        500 g vongole
+        1 spicchio d'aglio
+        Olio extravergine d'oliva
     validations:
       required: true
 
@@ -55,20 +69,48 @@ body:
     id: preparazione
     attributes:
       label: "Preparazione"
-      placeholder: "Descrivi la preparazione..."
+      placeholder: "Descrivi tutti i passaggi della preparazione..."
     validations:
       required: true
+
+  - type: input
+    id: tempo_preparazione
+    attributes:
+      label: "Tempo di preparazione"
+      placeholder: "Es. 15 minuti"
+
+  - type: input
+    id: tempo_cottura
+    attributes:
+      label: "Tempo di cottura"
+      placeholder: "Es. 20 minuti"
+
+  - type: input
+    id: persone
+    attributes:
+      label: "Numero di persone"
+      placeholder: "Es. 2"
+
+  - type: dropdown
+    id: difficolta
+    attributes:
+      label: "Difficoltà"
+      options:
+        - Facile
+        - Media
+        - Difficile
 
   - type: textarea
     id: note
     attributes:
-      label: "Note"
-      placeholder: "Eventuali note o consigli..."
+      label: "Note e consigli"
+      placeholder: "Eventuali note, varianti o consigli..."
 
   - type: checkboxes
     id: conferma
     attributes:
-      label: "Conferma"
+      label: "Conferma pubblicazione"
+      description: "La ricetta sarà sottoposta all'approvazione dell'amministratore."
       options:
         - label: "Confermo di voler proporre questa ricetta per la pubblicazione nella Community."
           required: true
