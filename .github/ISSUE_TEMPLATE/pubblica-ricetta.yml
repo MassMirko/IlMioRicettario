@@ -40,7 +40,6 @@ body:
         - Primi
         - Secondi
         - Contorni
-        - Piatti unici
         - Dolci
         - Altro
     validations:
@@ -52,16 +51,18 @@ body:
       label: "Ingrediente principale"
       placeholder: "Es. Pasta"
 
+  - type: input
+    id: regione
+    attributes:
+      label: "Regione"
+      description: "Campo facoltativo"
+      placeholder: "Es. Sardegna, Marche, Lombardia"
+
   - type: textarea
     id: ingredienti
     attributes:
       label: "Ingredienti"
-      placeholder: |
-        Es.
-        200 g spaghetti
-        500 g vongole
-        1 spicchio d'aglio
-        Olio extravergine d'oliva
+      placeholder: "Inserisci gli ingredienti..."
     validations:
       required: true
 
@@ -69,7 +70,7 @@ body:
     id: preparazione
     attributes:
       label: "Preparazione"
-      placeholder: "Descrivi tutti i passaggi della preparazione..."
+      placeholder: "Descrivi la preparazione..."
     validations:
       required: true
 
@@ -77,18 +78,21 @@ body:
     id: tempo_preparazione
     attributes:
       label: "Tempo di preparazione"
+      description: "Campo facoltativo - indicare i minuti"
       placeholder: "Es. 15"
 
   - type: input
     id: tempo_cottura
     attributes:
       label: "Tempo di cottura"
-      placeholder: "Es. 20"
+      description: "Campo facoltativo - indicare i minuti"
+      placeholder: "Es. 30"
 
   - type: input
     id: persone
     attributes:
       label: "Numero di persone"
+      description: "Campo facoltativo"
       placeholder: "Es. 2"
 
   - type: dropdown
@@ -96,7 +100,6 @@ body:
     attributes:
       label: "Difficoltà"
       options:
-        - Non specificata
         - Facile
         - Media
         - Difficile
@@ -105,20 +108,19 @@ body:
     id: note
     attributes:
       label: "Note e consigli"
-      placeholder: "Eventuali note, varianti o consigli..."
+      placeholder: "Eventuali note o consigli..."
 
   - type: textarea
     id: foto
     attributes:
       label: "Foto della ricetta"
-      description: "Trascina qui la foto della ricetta oppure incollala in questo campo. La foto è facoltativa."
-      placeholder: "Trascina o incolla qui una fotografia..."
+      description: "Campo facoltativo - trascina qui una fotografia oppure incollala nel riquadro."
+      placeholder: "Trascina qui la fotografia..."
 
   - type: checkboxes
     id: conferma
     attributes:
       label: "Conferma pubblicazione"
-      description: "La ricetta sarà sottoposta all'approvazione dell'amministratore."
       options:
         - label: "Confermo di voler proporre questa ricetta per la pubblicazione nella Community."
           required: true
