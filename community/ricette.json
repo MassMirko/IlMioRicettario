@@ -43,27 +43,4 @@
       "foto_percorso": "community/immagini/ricetta_6.jpg",
       "video_link": "",
       "data_pubblicazione": "2026-10-05T16:13:34+00:00"
-    },
-    {
-      "id": 7,
-      "issue": 7,
-      "nome": "TEST COMMUNITY DOWNLOAD",
-      "autore": "mirko",
-      "tipo_piatto": "Unico",
-      "ingrediente_principale": "Riso",
-      "regione": "albdhrfogtj",
-      "ingredienti": "kf.lkngclkm\nlkflkglkfgm vn\nkldfjm,dfnv,v",
-      "preparazione": "efdklfgjuoigflfngvmc nlgfòn",
-      "tempo_preparazione": "",
-      "tempo_cottura": "",
-      "persone": "2",
-      "difficolta": "Facile",
-      "note": "",
-      "foto_url": "",
-      "foto_originale": "",
-      "foto_percorso": "",
-      "video_link": "",
-      "data_pubblicazione": "2026-10-05T17:31:36+00:00"
     }
-  ]
-}
