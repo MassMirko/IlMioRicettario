@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "ultimo_aggiornamento": "2026-10-05T09:22:58+00:00",
+  "ultimo_aggiornamento": "2026-10-05T09:42:40+00:00",
   "ricette": [
     {
       "id": 2,
@@ -19,6 +19,24 @@
       "foto_url": "",
       "video_link": "",
       "data_pubblicazione": "2026-10-05T09:22:58+00:00"
+    },
+    {
+      "id": 3,
+      "issue": 3,
+      "nome": "TEST COMMUNITY 3",
+      "autore": "Mirko",
+      "tipo_piatto": "Secondi",
+      "ingrediente_principale": "Maiale",
+      "ingredienti": "1 kg arista di maiale e 500 g patate",
+      "preparazione": "Ricetta di prova per verificare la pubblicazione della fotografia.",
+      "tempo_preparazione": "15",
+      "tempo_cottura": "45",
+      "persone": "4",
+      "difficolta": "Facile",
+      "note": "Test fotografia Community",
+      "foto_url": "https://github.com/user-attachments/assets/1c917767-06fa-40e7-a003-00bade8a866c",
+      "video_link": "",
+      "data_pubblicazione": "2026-10-05T09:42:40+00:00"
     }
   ]
 }
