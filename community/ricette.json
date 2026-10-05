@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "ultimo_aggiornamento": "2026-10-05T09:42:40+00:00",
+  "ultimo_aggiornamento": "2026-10-05T09:51:14+00:00",
   "ricette": [
     {
       "id": 2,
@@ -37,6 +37,26 @@
       "foto_url": "https://github.com/user-attachments/assets/1c917767-06fa-40e7-a003-00bade8a866c",
       "video_link": "",
       "data_pubblicazione": "2026-10-05T09:42:40+00:00"
+    },
+    {
+      "id": 4,
+      "issue": 4,
+      "nome": "TEST COMMUNITY 4",
+      "autore": "mirko",
+      "tipo_piatto": "Secondi",
+      "ingrediente_principale": "pollo",
+      "ingredienti": "pollo e patate",
+      "preparazione": "icetta di prova per il salvataggio della foto",
+      "tempo_preparazione": "1",
+      "tempo_cottura": "111",
+      "persone": "45",
+      "difficolta": "Facile",
+      "note": "_No response_",
+      "foto_url": "https://raw.githubusercontent.com/MassMirko/IlMioRicettario/main/community/immagini/ricetta_4.jpg",
+      "foto_originale": "https://github.com/user-attachments/assets/7eabe786-c13a-436a-948b-3ce5ae6effaa",
+      "foto_percorso": "community/immagini/ricetta_4.jpg",
+      "video_link": "",
+      "data_pubblicazione": "2026-10-05T09:51:14+00:00"
     }
   ]
 }
