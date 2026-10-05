@@ -1,0 +1,30 @@
+name: Pubblica ricetta approvata
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  pubblica:
+    if: github.event.label.name == 'approvata'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Controlla repository
+        uses: actions/checkout@v4
+
+      - name: Verifica approvazione amministratore
+        if: github.actor != 'MassMirko'
+        run: |
+          echo "Solo l'amministratore MassMirko può approvare una ricetta."
+          exit 1
+
+      - name: Conferma richiesta
+        run: |
+          echo "Ricetta #${{ github.event.issue.number }} approvata."
+          echo "Titolo: ${{ github.event.issue.title }}"
+          echo "Approvata da: ${{ github.actor }}"
