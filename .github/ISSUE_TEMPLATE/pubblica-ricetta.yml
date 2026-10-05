@@ -77,13 +77,13 @@ body:
     id: tempo_preparazione
     attributes:
       label: "Tempo di preparazione"
-      placeholder: "Es. 15 minuti"
+      placeholder: "Es. 15"
 
   - type: input
     id: tempo_cottura
     attributes:
       label: "Tempo di cottura"
-      placeholder: "Es. 20 minuti"
+      placeholder: "Es. 20"
 
   - type: input
     id: persone
@@ -96,6 +96,7 @@ body:
     attributes:
       label: "Difficoltà"
       options:
+        - Non specificata
         - Facile
         - Media
         - Difficile
@@ -105,6 +106,13 @@ body:
     attributes:
       label: "Note e consigli"
       placeholder: "Eventuali note, varianti o consigli..."
+
+  - type: textarea
+    id: foto
+    attributes:
+      label: "Foto della ricetta"
+      description: "Trascina qui la foto della ricetta oppure incollala in questo campo. La foto è facoltativa."
+      placeholder: "Trascina o incolla qui una fotografia..."
 
   - type: checkboxes
     id: conferma
