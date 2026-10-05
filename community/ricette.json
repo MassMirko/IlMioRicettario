@@ -1,5 +1,27 @@
 {
   "versione": 1,
-  "ultimo_aggiornamento": "",
-  "ricette": []
+  "ultimo_aggiornamento": "2026-10-05T11:19:43+00:00",
+  "ricette": [
+    {
+      "id": 5,
+      "issue": 5,
+      "nome": "Busecca alla milanese (trippa alla milanese) pentola a pressione",
+      "autore": "Mirko",
+      "tipo_piatto": "Unico",
+      "ingrediente_principale": "Carne",
+      "regione": "Lombardia",
+      "ingredienti": "500 g trippa bovina, pulita e precotta\n100 g fagioli di Spagna già cotti\n50 g lardo\n15 g burro\n½ cipolla\n½ carota\n½ costa sedano\n120 g passata di pomodoro\n3 foglie salvia\n1 foglia alloro\n1 chiodo garofano\n1 bacca di ginepro\ncirca 300 ml brodo caldo\nsale\nGrana Padano",
+      "preparazione": "Procedimento\n1. taglia la trippa precotta in striscioline non troppo sottili, circa 1 × 4 cm.\n2. Nella pentola a pressione aperta: burro, pancetta a dadini, cipolla, carota e sedano. Fai andare a fuoco medio per circa 5 min. Aggiungi salvia, alloro, ginepro, e chiodo garofano\n3. Aggiungi la trippa e falla insaporire per 5 min, mescolando. Aggiungi la passata e lascia restringere per altri 2 min.\n4. Versa il brodo caldo. Non esagerareo: la busecca deve venire densa, non galleggiare nel brodo. Chiudi la pentola.\nAl raggiungimento della pressione, 35 min. Terminata la cottura, sfiata la pentola.\n5. Apri, elimina alloro, ginepro e chiodo di garofano. Aggiungi i fagioli bianchi di Spagna scolati. Riaccendi a pentola scoperta e fai andare per circa 10 min, mescolando.",
+      "tempo_preparazione": "",
+      "tempo_cottura": "",
+      "persone": "2",
+      "difficolta": "Facile",
+      "note": "Busecca alla milanese (traduz. la trippa alla milanese) adattata alla pentola a pressione\nIIMPORTANTE\nServi bollente con una bella grattugiata di Grana Padano sopra. Pane rustico obbligatorio.\nPS: Se la prepari il giorno prima, è più buona.",
+      "foto_url": "",
+      "foto_originale": "",
+      "foto_percorso": "",
+      "video_link": "",
+      "data_pubblicazione": "2026-10-05T11:19:43+00:00"
+    }
+  ]
 }
