@@ -14,17 +14,139 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Controlla repository
-        uses: actions/checkout@v4
-
       - name: Verifica approvazione amministratore
         if: github.actor != 'MassMirko'
         run: |
           echo "Solo l'amministratore MassMirko può approvare una ricetta."
           exit 1
 
-      - name: Conferma richiesta
+      - name: Scarica repository
+        uses: actions/checkout@v4
+
+      - name: Estrai ricetta e aggiorna archivio
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
-          echo "Ricetta #${{ github.event.issue.number }} approvata."
-          echo "Titolo: ${{ github.event.issue.title }}"
-          echo "Approvata da: ${{ github.actor }}"
+          python3 <<'PY'
+          import json
+          import os
+          import re
+          from datetime import datetime, timezone
+
+          body = os.environ.get("ISSUE_BODY", "")
+          issue_number = int(os.environ["ISSUE_NUMBER"])
+
+          def campo(nome, successivo=None):
+              if successivo:
+                  pattern = (
+                      rf"### {re.escape(nome)}\s*\n(.*?)"
+                      rf"(?=\n### {re.escape(successivo)}\s*\n)"
+                  )
+              else:
+                  pattern = rf"### {re.escape(nome)}\s*\n(.*)"
+
+              m = re.search(pattern, body, re.S)
+              return m.group(1).strip() if m else ""
+
+          autore = campo("Nome o nickname", "Nome della ricetta")
+          nome = campo("Nome della ricetta", "Tipo di piatto")
+          tipo = campo("Tipo di piatto", "Ingredienti")
+          ingredienti = campo("Ingredienti", "Preparazione")
+          preparazione = campo("Preparazione", "Note")
+          note = campo("Note", "Conferma")
+
+          if not nome or not ingredienti or not preparazione:
+              raise SystemExit(
+                  "ERRORE: impossibile leggere i campi obbligatori della ricetta."
+              )
+
+          percorso = "community/ricette.json"
+
+          with open(percorso, "r", encoding="utf-8") as f:
+              archivio = json.load(f)
+
+          ricette = archivio.setdefault("ricette", [])
+
+          # Evita di pubblicare due volte la stessa Issue.
+          if any(r.get("issue") == issue_number for r in ricette):
+              print("Questa Issue risulta già pubblicata.")
+              raise SystemExit(0)
+
+          nuova_ricetta = {
+              "id": issue_number,
+              "issue": issue_number,
+              "nome": nome,
+              "autore": autore,
+              "tipo_piatto": tipo,
+              "ingredienti": ingredienti,
+              "preparazione": preparazione,
+              "note": note,
+              "data_pubblicazione": datetime.now(
+                  timezone.utc
+              ).isoformat(timespec="seconds")
+          }
+
+          ricette.append(nuova_ricetta)
+
+          archivio["ultimo_aggiornamento"] = datetime.now(
+              timezone.utc
+          ).isoformat(timespec="seconds")
+
+          with open(percorso, "w", encoding="utf-8") as f:
+              json.dump(
+                  archivio,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+          print("Pubblicata:", nome)
+          PY
+
+      - name: Pubblica modifica nel repository
+        run: |
+          if git diff --quiet; then
+            echo "Nessuna modifica da pubblicare."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add community/ricette.json
+          git commit -m "Pubblica ricetta #${{ github.event.issue.number }}"
+          git push
+
+      - name: Aggiorna e chiudi la richiesta
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue_number = context.issue.number;
+
+            try {
+              await github.rest.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number,
+                name: 'ricetta-da-approvare'
+              });
+            } catch (error) {
+              if (error.status !== 404) {
+                throw error;
+              }
+            }
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number,
+              body: '✅ Ricetta approvata e pubblicata nella Community di **Il Mio Ricettario**.'
+            });
+
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number,
+              state: 'closed'
+            });
