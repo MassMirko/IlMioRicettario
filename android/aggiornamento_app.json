@@ -1,6 +1,6 @@
-﻿{
-  "version": "1.0.0",
-  "version_code": 6,
-  "apk_url": "https://github.com/MassMirko/IlMioRicettario/releases/download/v1.0.0/IlMioRicettario-v1.0.0.apk",
-  "notes": "Prima versione definitiva di Il Mio Ricettario per Android."
+{
+  "version": "1.0.1",
+  "version_code": 7,
+  "apk_url": "https://github.com/MassMirko/IlMioRicettario/releases/download/v1.0.1/IlMioRicettario-v1.0.1.apk",
+  "notes": "Aggiunto il supporto REGIONE e la compatibilità con i database delle versioni precedenti."
 }
