@@ -311,6 +311,118 @@ jobs:
 
           PY
 
+      - name: Rigenera pacchetto Android
+        run: |
+          python3 <<'PY'
+          import hashlib, json, os, re, shutil, sqlite3, tempfile, zipfile
+          from datetime import datetime
+          from pathlib import Path
+
+          archivio = json.loads(Path('community/ricette.json').read_text(encoding='utf-8'))
+          community = archivio.get('ricette', [])
+          sync = Path('sync')
+          sync.mkdir(parents=True, exist_ok=True)
+          vecchio_zip = sync / 'ricettario_dati.zip'
+
+          with tempfile.TemporaryDirectory() as td:
+              tmp = Path(td)
+              if vecchio_zip.exists():
+                  with zipfile.ZipFile(vecchio_zip, 'r') as z:
+                      z.extractall(tmp)
+
+              db = tmp / 'aggiornamento.db'
+              foto_dir = tmp / 'immagini'
+              foto_dir.mkdir(parents=True, exist_ok=True)
+              con = sqlite3.connect(db)
+              cur = con.cursor()
+              cur.execute('''CREATE TABLE IF NOT EXISTS ricette (
+                  id INTEGER PRIMARY KEY, nome TEXT NOT NULL, tipo_piatto TEXT,
+                  ingrediente_principale TEXT, regione TEXT, foto TEXT, ingredienti TEXT,
+                  preparazione TEXT, tempo_preparazione INTEGER, tempo_cottura INTEGER,
+                  persone INTEGER, difficolta TEXT, note TEXT, video_link TEXT,
+                  preferita INTEGER NOT NULL DEFAULT 0, community_id TEXT)''')
+              cur.execute('PRAGMA table_info(ricette)')
+              colonne = {r[1] for r in cur.fetchall()}
+              if 'regione' not in colonne: cur.execute('ALTER TABLE ricette ADD COLUMN regione TEXT')
+              if 'video_link' not in colonne: cur.execute('ALTER TABLE ricette ADD COLUMN video_link TEXT')
+              if 'preferita' not in colonne: cur.execute('ALTER TABLE ricette ADD COLUMN preferita INTEGER NOT NULL DEFAULT 0')
+              if 'community_id' not in colonne: cur.execute('ALTER TABLE ricette ADD COLUMN community_id TEXT')
+
+              cur.execute('SELECT id, nome, community_id FROM ricette')
+              righe = cur.fetchall()
+              per_cid = {str(cid).strip(): rid for rid, _, cid in righe if cid is not None and str(cid).strip()}
+              per_nome = {' '.join(str(nome or '').split()).casefold(): (rid, str(cid or '').strip()) for rid, nome, cid in righe if str(nome or '').strip()}
+
+              def numero(v):
+                  m = re.search(r'-?\d+', str(v or '').strip())
+                  return int(m.group(0)) if m else None
+
+              for r in community:
+                  nome = str(r.get('nome') or '').strip()
+                  cid = str(r.get('id') or '').strip()
+                  if not nome or not cid:
+                      continue
+                  foto_rel = str(r.get('foto_percorso') or '').strip()
+                  foto_db = ''
+                  if foto_rel:
+                      origine = Path(foto_rel)
+                      if not origine.is_file():
+                          raise SystemExit(f'ERRORE: foto mancante per {nome}: {foto_rel}')
+                      shutil.copy2(origine, foto_dir / origine.name)
+                      foto_db = 'immagini/' + origine.name
+
+                  valori = (nome, str(r.get('tipo_piatto') or '').strip(),
+                      str(r.get('ingrediente_principale') or '').strip(),
+                      str(r.get('regione') or '').strip(), foto_db,
+                      str(r.get('ingredienti') or '').strip(), str(r.get('preparazione') or '').strip(),
+                      numero(r.get('tempo_preparazione')), numero(r.get('tempo_cottura')), numero(r.get('persone')),
+                      str(r.get('difficolta') or '').strip(), str(r.get('note') or '').strip(),
+                      str(r.get('video_link') or '').strip(), cid)
+
+                  if cid in per_cid:
+                      cur.execute('''UPDATE ricette SET nome=?, tipo_piatto=?, ingrediente_principale=?, regione=?,
+                          foto=?, ingredienti=?, preparazione=?, tempo_preparazione=?, tempo_cottura=?, persone=?,
+                          difficolta=?, note=?, video_link=?, community_id=? WHERE id=?''', valori + (per_cid[cid],))
+                      continue
+
+                  chiave = ' '.join(nome.split()).casefold()
+                  if chiave in per_nome and not per_nome[chiave][1]:
+                      rid = per_nome[chiave][0]
+                      cur.execute('UPDATE ricette SET community_id=? WHERE id=?', (cid, rid))
+                      per_cid[cid] = rid
+                      continue
+
+                  cur.execute('''INSERT INTO ricette (nome,tipo_piatto,ingrediente_principale,regione,foto,ingredienti,
+                      preparazione,tempo_preparazione,tempo_cottura,persone,difficolta,note,video_link,preferita,community_id)
+                      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,0,?)''', valori)
+                  per_cid[cid] = cur.lastrowid
+
+              con.commit()
+              cur.execute('SELECT COUNT(*) FROM ricette')
+              recipe_count = cur.fetchone()[0]
+              con.close()
+              image_count = sum(1 for p in foto_dir.iterdir() if p.is_file())
+
+              h = hashlib.sha256(db.read_bytes()).hexdigest()
+              versione = f'1.5.{recipe_count}'
+              manifest = {'schema':1,'data_version':versione,'created_at':datetime.now().astimezone().isoformat(timespec='seconds'),
+                  'recipe_count':recipe_count,'image_count':image_count,'database_file':'aggiornamento.db',
+                  'database_sha256':h,'images_dir':'immagini'}
+              (tmp/'versione_aggiornamento.txt').write_text(versione, encoding='utf-8')
+              (tmp/'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf-8')
+
+              nuovo = sync/'ricettario_dati.zip.nuovo'
+              with zipfile.ZipFile(nuovo, 'w', zipfile.ZIP_DEFLATED) as z:
+                  z.write(db, 'aggiornamento.db')
+                  z.write(tmp/'versione_aggiornamento.txt', 'versione_aggiornamento.txt')
+                  z.write(tmp/'manifest.json', 'manifest.json')
+                  for f in sorted(foto_dir.iterdir()):
+                      if f.is_file(): z.write(f, 'immagini/' + f.name)
+              os.replace(nuovo, sync/'ricettario_dati.zip')
+              shutil.copy2(tmp/'manifest.json', sync/'manifest.json')
+              print(f'Pacchetto Android: {recipe_count} ricette, {image_count} immagini, {versione}')
+          PY
+
       - name: Pubblica modifica nel repository
         run: |
           if git status --porcelain | grep -q .; then
@@ -319,8 +431,10 @@ jobs:
 
             git add community/ricette.json
             git add community/immagini 2>/dev/null || true
+            git add sync/manifest.json
+            git add sync/ricettario_dati.zip
 
-            git commit -m "Pubblica ricetta #${{ github.event.issue.number }}"
+            git commit -m "Pubblica ricetta #${{ github.event.issue.number }} e aggiorna pacchetto Android"
             git push
           else
             echo "Nessuna modifica da pubblicare."
