@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "ultimo_aggiornamento": "2026-10-07T18:22:55+00:00",
+  "ultimo_aggiornamento": "2026-10-07T18:24:26+00:00",
   "ricette": [
     {
       "id": 5,
@@ -169,6 +169,27 @@
       "foto_percorso": "",
       "video_link": "",
       "data_pubblicazione": "2026-10-07T18:22:55+00:00"
+    },
+    {
+      "id": 15,
+      "issue": 15,
+      "nome": "Involtini di manzo e pancetta alla Eja!",
+      "autore": "Mirko",
+      "tipo_piatto": "Secondi",
+      "ingrediente_principale": "Carne",
+      "regione": "",
+      "ingredienti": "Ingredienti\n8 fettine sottili di vitello (circa 400 g)\n100 g di pancetta arrotolata, affettata sottile\n100 g di pangrattato\n4 cucchiai di olio EVO\nalloro\nsale q.b.\nspiedini\nPer il contorno:\npomodori maturi\ncipolla rossa di Tropea\nolio EVO\nsale",
+      "preparazione": "Preparazione\nStendi le fettine di vitello sul piano di lavoro e, se necessario, battile leggermente per renderle abbastanza sottili e regolari.\nSu ogni fettina sistema una o due fettine di pancetta arrotolata, senza esagerare: durante la cottura il suo grasso si scioglierà e renderà il vitello saporito e morbido.\nArrotola ogni fettina su se stessa formando un involtino compatto ma non troppo stretto, in modo che la carne possa cuocere uniformemente.\nVersa l'olio EVO in un piatto e il pangrattato in un altro.\nPassa ogni involtino prima nell'olio, facendolo ungere bene su tutta la superficie, e subito dopo nel pangrattato, facendolo aderire con le mani.\nPrepariamo gli spiedini\nInfila gli involtini sugli spiedini alternandoli con qualche foglia di alloro.\nScalda molto bene una piastra o una bistecchiera. Quando è calda, appoggia gli spiedini senza aggiungere altro olio.\nCuocili a fuoco medio/medio-alto per circa 12 min, girandoli più volte in modo che la panatura diventi dorata su tutti i lati.\nNegli ultimi minuti abbassa leggermente il fuoco: vogliamo una bella crosticina fuori, ma il vitello deve rimanere morbido e la pancetta all'interno deve avere il tempo di sciogliersi.\nSala solo alla fine, e poco: la pancetta dà già parecchia sapidità.\nContorno: pomodori e cipolla di Tropea\nTaglia i pomodori a spicchi e la cipolla di Tropea finissima. Condisci con olio EVO, sale.\nLasciali riposare 10 min prima di servire.",
+      "tempo_preparazione": "20",
+      "tempo_cottura": "12",
+      "persone": "2",
+      "difficolta": "Facile",
+      "note": "Prima di metterli sulla piastra, lascia riposare gli involtini già impanati 10 minuti. Il pangrattato assorbe leggermente l'olio e aderisce meglio alla carne: sulla piastra tende molto meno a staccarsi.",
+      "foto_url": "",
+      "foto_originale": "",
+      "foto_percorso": "",
+      "video_link": "",
+      "data_pubblicazione": "2026-10-07T18:24:26+00:00"
     }
   ]
 }
