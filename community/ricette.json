@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "ultimo_aggiornamento": "2026-10-07T18:04:18+00:00",
+  "ultimo_aggiornamento": "2026-10-07T18:16:08+00:00",
   "ricette": [
     {
       "id": 5,
@@ -106,6 +106,27 @@
       "foto_percorso": "",
       "video_link": "",
       "data_pubblicazione": "2026-10-07T18:04:18+00:00"
+    },
+    {
+      "id": 11,
+      "issue": 11,
+      "nome": "Involtini di manzo alla birra bionda, pancetta, olive nere e limone",
+      "autore": "Mirko",
+      "tipo_piatto": "Secondi",
+      "ingrediente_principale": "Carne",
+      "regione": "",
+      "ingredienti": "Ingredienti\n6 fettine sottili di manzo\n6 fette di pancetta arrotolata\nolive nere denocciolate\n5 foglie di salvia\n1 limone non trattato\n150 ml birra bionda\n100 ml di brodo di carne\n1 cucchiaio di farina\n20 g burro\n1 cucchiaio olio EVO\nsale",
+      "preparazione": "1. Stendi le fettine di manzo.\nSu ciascuna metti:\n1 fetta di pancetta arrotolata\nfoglia di salvia\n3 pezzetti di oliva nera\nArrotola bene la carne e chiudi ogni involtino con gli stuzzicadenti.\n2. Passa gli involtini nella farina. Deve essere un velo, non una panatura.\n3. Prendi una padella larga e metti 1 cucchiaio di olio e 10 g di burro. Scalda bene e aggiungi gli involtini. Falli rosolare a fuoco medio-alto per circa 5 min, girandoli continuamente. Devono diventare belli dorati. La pancetta inizierà a rilasciare il suo grasso e creerà il fondo della nostra salsa.\n4. Alza la fiamma e versa 150 ml di birra bionda. Lascia evaporare per 3 min, girando gli involtini. \n5. Ora aggiungi 100 ml di brodo caldo, il succo di ½ limone, 3 striscioline sottilissime di scorza di limone. Mescola delicatamente il fondo. Poi aggiungi circa metà delle olive rimaste, lasciando l'altra metà per la fase finale.\n6. Abbassa la fiamma, copri e cuoci per circa 7-8 min. A metà cottura gira gli involtini. \n7. Togli il coperchio e aggiungi le olive rimaste. Alza leggermente la fiamma e lascia restringere il fondo per 2-3 min. Quando la salsa diventa cremosa, spegni il fuoco. Aggiungi gli ultimi 10 g di burro e fai ruotare delicatamente la padella. \nDeve venire così: Una salsa bruna, lucida e cremosa, con il gusto della birra ben integrato, il sapore della pancetta, qualche pezzetto di oliva e una nota finale fresca di limone.",
+      "tempo_preparazione": "",
+      "tempo_cottura": "",
+      "persone": "2",
+      "difficolta": "Facile",
+      "note": "🏆 Il punto forte della ricetta è il contrasto:\n\n🥩 manzo → saporito e carnoso\n🥓 pancetta → grassa e croccante\n🍺 birra bionda → aromatica e leggermente maltata\n🫒 olive nere → sapidità e carattere\n🍋 limone → freschezza e pulizia finale",
+      "foto_url": "",
+      "foto_originale": "",
+      "foto_percorso": "",
+      "video_link": "",
+      "data_pubblicazione": "2026-10-07T18:16:08+00:00"
     }
   ]
 }
