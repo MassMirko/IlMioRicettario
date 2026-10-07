@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "ultimo_aggiornamento": "2026-10-05T17:31:36+00:00",
+  "ultimo_aggiornamento": "2026-10-07T11:08:58+00:00",
   "ricette": [
     {
       "id": 5,
@@ -43,6 +43,27 @@
       "foto_percorso": "community/immagini/ricetta_6.jpg",
       "video_link": "",
       "data_pubblicazione": "2026-10-05T16:13:34+00:00"
+    },
+    {
+      "id": 8,
+      "issue": 8,
+      "nome": "Cazzoeula alla milanese in pentola a pressione",
+      "autore": "Mirko",
+      "tipo_piatto": "Altro",
+      "ingrediente_principale": "Carne",
+      "regione": "Lombardia",
+      "ingredienti": "Ingredienti\n400 g di costine di maiale\n150 g di verzini\n80 g di cotenna di maiale\n700 g di verza pulita\n½ cipolla½ carota\n½ costa di sedano\n1 cucchiaio di olio EVO\n15 g di burro\n1 cucchiaino di concentrato di pomodoro\n80 ml di vino bianco secco\n200 ml di brodo di carne caldo\n1 foglia di alloro\nsale\n1 chiodo garofano",
+      "preparazione": "PROCEDIMENTO\n1. Metti la cotenna in una pentola con acqua fredda. Porta a bollore e fai cuocere per 10 minuti. Scola e sciacqua. Questo passaggio è importante: elimina parte delle impurità e dell'eccesso di grasso senza togliere quella componente gelatinosa che vogliamo nella cazzuoeula. La cotenna tagliala poi in strisce larghe circa 2 cm.\n2. Rosoliamo le costine. Metti nella pentola a pressione, senza coperchio olio, burro, cipolla tritata, carota tritata e sedano tritato. Fai andare per 5 min. Aggiungi le costine e rosolale per circa 10 min. Devono diventare dorate: darà alla cazzuoeula quel sapore profondo che la semplice cottura non può creare.\n3. Versa il vino bianco. Alza la fiamma e lascia evaporare. Aggiungi concentrato di pomodoro, alloro, chiodo garofano e il brodo caldo. Mescola. \n4. Cottura cotenna + costine. Chiudi la pentola a pressione. Dal raggiungimento della pressione: 20 min. Spegni e lascia scendere naturalmente la pressione per 10 min. Apri.\n5. Togli le costine e la cotenna. Aggiungi nella pentola circa metà della verza. Sembra tantissima, ma si ridurrà enormemente. Falla appassire per 3-4 min mescolando. Aggiungi il resto della verza. Rimetti sopra costine, cotenna e i verzini.\n6. Chiudi nuovamente la pentola. Dal raggiungimento della pressione: 8 min. Poi spegni e lascia fare rilascio naturale per 10 min. Apri.\n7. Togli le costine e i verzini, sistemali momentaneamente in un piatto. Lascia nella pentola verza + cotenna + fondo di cottura. Fai restringere a fuoco medio-alto per 8-12 min mescolando delicatamente. Deve diventare una salsa densa, senza brodo sul fondo.\n8. Regoliamo il sapore. Servirà pochissimo sale: la sapidità arriverà da verzini, costine e brodo. \n9. Rimetti nella pentola costine e verzini, mescola delicatamente, senza distruggere la verza. Fai andare 2-3 min a fuoco bassissimo. Spegni.\n10. RIPOSO — OBBLIGATORIO: copri e lascia riposare 20 min. Se invece hai tempo, il massimo è prepararla qualche ora prima → lasciarla riposare → riscaldarla lentamente prima di mangiarla. Il giorno dopo è ancora più buona",
+      "tempo_preparazione": "",
+      "tempo_cottura": "",
+      "persone": "2",
+      "difficolta": "Facile",
+      "note": "",
+      "foto_url": "",
+      "foto_originale": "",
+      "foto_percorso": "",
+      "video_link": "",
+      "data_pubblicazione": "2026-10-07T11:08:58+00:00"
     }
-]
+  ]
 }
