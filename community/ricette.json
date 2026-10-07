@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "ultimo_aggiornamento": "2026-10-07T18:16:08+00:00",
+  "ultimo_aggiornamento": "2026-10-07T18:21:23+00:00",
   "ricette": [
     {
       "id": 5,
@@ -127,6 +127,27 @@
       "foto_percorso": "",
       "video_link": "",
       "data_pubblicazione": "2026-10-07T18:16:08+00:00"
+    },
+    {
+      "id": 13,
+      "issue": 13,
+      "nome": "Costine di maiale al forno con patate",
+      "autore": "Mirko",
+      "tipo_piatto": "Secondi",
+      "ingrediente_principale": "Carne",
+      "regione": "",
+      "ingredienti": "Ingredienti\n500 g di costine di maiale\n450 g di patate\n2 spicchi d'aglio\n2 rametti di rosmarino\nolio EVO q.b.\nsale q.b.\npepe q.b.",
+      "preparazione": "Preparazione\nSbuccia le patate, lavale e tagliale a pezzi abbastanza grossi e possibilmente della stessa dimensione, così cuoceranno in maniera uniforme.\nMetti le patate in una teglia capiente, aggiungi gli spicchi d'aglio leggermente schiacciati, il rosmarino, sale, pepe e un generoso giro di olio extravergine. Mescola bene con le mani in modo da ungere e insaporire tutte le patate.\nAsciuga le costine di maiale con carta da cucina. Massaggiale con pochissimo olio, sale e pepe e adagiale nella teglia insieme alle patate, lasciandole ben esposte al calore.\nPorta il forno a 200 °C statico oppure 190 °C ventilato.\nInforna nella parte centrale del forno e cuoci per circa 50 min. Dopo circa 25 min. gira le patate e irrorale con un po' del fondo di cottura che si sarà formato nella teglia.\nGira anche le costine almeno una volta, in modo che prendano colore uniformemente.\nNegli ultimi 10 min, se vuoi ottenere una bella crosticina, alza la temperatura a 220 °C oppure passa alla funzione grill, controllando continuamente per evitare che brucino.\nSono pronte quando le costine risultano ben dorate e succose, mentre le patate devono essere morbide all'interno e con i bordi belli arrostiti.\nLasciale riposare 5 min fuori dal forno, quindi impiatta versando sopra alla carne un cucchiaio del suo fondo di cottura. 😋",
+      "tempo_preparazione": "15",
+      "tempo_cottura": "50",
+      "persone": "2",
+      "difficolta": "Facile",
+      "note": "",
+      "foto_url": "",
+      "foto_originale": "",
+      "foto_percorso": "",
+      "video_link": "",
+      "data_pubblicazione": "2026-10-07T18:21:23+00:00"
     }
   ]
 }
