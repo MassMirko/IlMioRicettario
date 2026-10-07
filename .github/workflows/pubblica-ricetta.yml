@@ -185,6 +185,14 @@ jobs:
           if not foto_originale:
               foto_originale = estrai_foto(body)
 
+          # La fotografia è obbligatoria per la Community. Non pubblicare mai
+          # una ricetta monca: se manca un vero allegato GitHub, il job fallisce.
+          if not foto_originale:
+              raise SystemExit(
+                  "ERRORE: fotografia mancante. Allega una fotografia valida "
+                  "nel campo 'Foto della ricetta' prima dell'approvazione."
+              )
+
           if not nome or not ingredienti or not preparazione:
               raise SystemExit(
                   "ERRORE: impossibile leggere i campi "
@@ -205,65 +213,60 @@ jobs:
           foto_url = ""
           foto_percorso = ""
 
-          if foto_originale:
-              print("Foto allegata:", foto_originale)
+          print("Foto allegata:", foto_originale)
 
-              richiesta = urllib.request.Request(
-                  foto_originale,
-                  headers={
-                      "User-Agent": "IlMioRicettario-GitHubAction",
-                      "Accept": "image/*"
-                  }
+          richiesta = urllib.request.Request(
+              foto_originale,
+              headers={
+                  "User-Agent": "IlMioRicettario-GitHubAction",
+                  "Accept": "image/*"
+              }
+          )
+
+          # Qualunque errore di download o formato deve bloccare la pubblicazione.
+          # Non esiste più il fallback che pubblicava comunque la ricetta senza foto.
+          try:
+              with urllib.request.urlopen(
+                  richiesta,
+                  timeout=30
+              ) as risposta:
+                  dati_foto = risposta.read()
+          except Exception as errore:
+              raise SystemExit(
+                  f"ERRORE: impossibile scaricare la fotografia allegata: {errore}"
               )
 
-              try:
-                  with urllib.request.urlopen(
-                      richiesta,
-                      timeout=30
-                  ) as risposta:
-                      dati_foto = risposta.read()
+          estensione = estensione_immagine(dati_foto)
 
-                  estensione = estensione_immagine(dati_foto)
+          if not estensione:
+              raise SystemExit(
+                  "ERRORE: l'allegato non è un'immagine JPG, PNG, GIF o WEBP valida."
+              )
 
-                  if not estensione:
-                      raise ValueError(
-                          "Il file scaricato non è un'immagine supportata."
-                      )
+          cartella_immagini = Path("community/immagini")
+          cartella_immagini.mkdir(
+              parents=True,
+              exist_ok=True
+          )
 
-                  cartella_immagini = Path("community/immagini")
-                  cartella_immagini.mkdir(
-                      parents=True,
-                      exist_ok=True
-                  )
+          nome_file = f"ricetta_{issue_number}{estensione}"
+          destinazione = cartella_immagini / nome_file
 
-                  nome_file = f"ricetta_{issue_number}{estensione}"
-                  destinazione = cartella_immagini / nome_file
+          try:
+              with open(destinazione, "wb") as f:
+                  f.write(dati_foto)
+          except Exception as errore:
+              raise SystemExit(
+                  f"ERRORE: impossibile salvare la fotografia nel repository: {errore}"
+              )
 
-                  with open(destinazione, "wb") as f:
-                      f.write(dati_foto)
+          foto_percorso = f"community/immagini/{nome_file}"
+          foto_url = (
+              "https://raw.githubusercontent.com/"
+              f"{repository}/main/{foto_percorso}"
+          )
 
-                  foto_percorso = (
-                      f"community/immagini/{nome_file}"
-                  )
-
-                  foto_url = (
-                      "https://raw.githubusercontent.com/"
-                      f"{repository}/main/"
-                      f"{foto_percorso}"
-                  )
-
-                  print(
-                      "Foto salvata nel repository:",
-                      foto_percorso
-                  )
-
-              except Exception as errore:
-                  print(
-                      "ATTENZIONE: impossibile copiare la foto:",
-                      errore
-                  )
-
-                  foto_url = foto_originale
+          print("Foto salvata nel repository:", foto_percorso)
 
           adesso = datetime.now(
               timezone.utc
