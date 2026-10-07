@@ -1,6 +1,6 @@
 {
-  "version": "1.0.1",
-  "version_code": 7,
-  "apk_url": "https://github.com/MassMirko/IlMioRicettario/releases/download/v1.0.1/IlMioRicettario-v1.0.1.apk",
-  "notes": "Aggiunto il supporto REGIONE e la compatibilità con i database delle versioni precedenti."
+  "version": "1.0.2",
+  "version_code": 8,
+  "apk_url": "https://github.com/MassMirko/IlMioRicettario/releases/download/v1.0.2/IlMioRicettario-v1.0.2.apk",
+  "notes": "Aggiunta la Regione e preservazione dei Preferiti durante l'aggiornamento del ricettario."
 }
