@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "ultimo_aggiornamento": "2026-10-07T11:18:04+00:00",
+  "ultimo_aggiornamento": "2026-10-07T18:04:18+00:00",
   "ricette": [
     {
       "id": 5,
@@ -85,6 +85,27 @@
       "foto_percorso": "",
       "video_link": "",
       "data_pubblicazione": "2026-10-07T11:18:04+00:00"
+    },
+    {
+      "id": 10,
+      "issue": 10,
+      "nome": "Involtini di manzo alla piastra con prosciutto cotto e cheddar",
+      "autore": "Mirko",
+      "tipo_piatto": "Secondi",
+      "ingrediente_principale": "Carne",
+      "regione": "",
+      "ingredienti": "Ingredienti per 4 involtini:\n\n4 fettine di manzo\nprosciutto cotto\nformaggio cheddar\nalloro fresco\npangrattato\nolio di mais\nSale q.b.\nOlio di mais per ungere",
+      "preparazione": "Preparazione\n\n1. Stendi le 4 fettine di manzo e, se necessario, battille leggermente per renderle uniformi. Su ogni fettina disponi una fetta di prosciutto cotto e una fetta di cheddar. Ripiega prima i bordi laterali verso l'interno e poi arrotola la carne ben stretta, formando un involtino compatto. In questo modo il cheddar rimarrà all'interno durante la cottura invece di fuoriuscire immediatamente.\n\n2. Preparare la panatura In una ciotola mescola il pangrattato con un pizzico di sale. Passa ogni involtino nell'olio di mais, quindi rotolalo accuratamente nel pangrattato, premendo delicatamente con le mani affinché la panatura aderisca su tutta la superficie. L'alloro durante la cottura profumerà la carne e la panatura.\n\nCottura Sistema lo spiedo sopra la piastra. Cuocili per circa 20-25 minuti. A metà cottura gira lo spiedo e spennella leggermente gli involtini con altro olio di mais.",
+      "tempo_preparazione": "",
+      "tempo_cottura": "",
+      "persone": "2",
+      "difficolta": "Facile",
+      "note": "",
+      "foto_url": "",
+      "foto_originale": "",
+      "foto_percorso": "",
+      "video_link": "",
+      "data_pubblicazione": "2026-10-07T18:04:18+00:00"
     }
   ]
 }
