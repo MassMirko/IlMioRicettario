@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "ultimo_aggiornamento": "2026-10-08T09:34:17+00:00",
+  "ultimo_aggiornamento": "2026-10-08T14:20:43+00:00",
   "ricette": [
     {
       "id": 5,
@@ -337,6 +337,27 @@
       "foto_percorso": "community/immagini/ricetta_27.png",
       "video_link": "",
       "data_pubblicazione": "2026-10-08T09:34:17+00:00"
+    },
+    {
+      "id": 28,
+      "issue": 28,
+      "nome": "Pollo e patate al forno",
+      "autore": "Mirko",
+      "tipo_piatto": "Secondi",
+      "ingrediente_principale": "Carne",
+      "regione": "",
+      "ingredienti": "4/5 patate medie\n4 fusi di pollo\nolio EVO\nsale q.b.\npepe q.b\nrosmarino e alloro\n1 spicchio d'aglio",
+      "preparazione": "Taglia le patate a pezzi di circa 3–4 cm.\nFalle sbollentare 6–7 minuti in acqua salata.\nScolale e lasciale asciugare qualche minuto.\nCondiscile con olio, sale, pepe, rosmarino e aglio.\nNel frattempo condisci i fusi con olio e sale, rosmarino e alloro.\nMetti prima i fusi in forno a 200 °C per circa 20 minuti.\nAggiungi quindi le patate sbollentate nella stessa teglia, distribuendole intorno al pollo. Continua la cottura per altri 35–40 minuti, girando le patate una volta.\nNegli ultimi 10 minuti, porta a 220 °C per far diventare tutto bello dorato e croccante.\n\nIn questo modo il pollo cuoce bene senza seccarsi e le patate diventano croccanti fuori e morbide dentro.\n\nE soprattutto: non serve lessare completamente le patate; quei 6–7 minuti di precottura sono sufficienti. Poi finiscono di cuocere nel grasso e nei succhi del pollo, diventando mooolto più saporite. 😋",
+      "tempo_preparazione": "",
+      "tempo_cottura": "",
+      "persone": "2",
+      "difficolta": "Facile",
+      "note": "P.S.: hanno tempi un po' diversi. Se metti patate crude tagliate a pezzi normali insieme ai fusi dall'inizio, rischi che il pollo sia pronto mentre le patate sono ancora dure al centro.",
+      "foto_url": "https://raw.githubusercontent.com/MassMirko/IlMioRicettario/main/community/immagini/ricetta_28.png",
+      "foto_originale": "https://raw.githubusercontent.com/MassMirko/IlMioRicettario/main/community/immagini/proposte/a98cfba96dd7e9ca6377fab3781bc79df8791eddb16768a62ccd295d994813f2.png",
+      "foto_percorso": "community/immagini/ricetta_28.png",
+      "video_link": "",
+      "data_pubblicazione": "2026-10-08T14:20:43+00:00"
     }
   ]
 }
