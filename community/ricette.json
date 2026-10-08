@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "ultimo_aggiornamento": "2026-10-08T09:26:42+00:00",
+  "ultimo_aggiornamento": "2026-10-08T09:34:17+00:00",
   "ricette": [
     {
       "id": 5,
@@ -316,6 +316,27 @@
       "foto_percorso": "community/immagini/ricetta_26.png",
       "video_link": "",
       "data_pubblicazione": "2026-10-08T09:26:42+00:00"
+    },
+    {
+      "id": 27,
+      "issue": 27,
+      "nome": "Involtini di pollo con prosciutto crudo, formaggio e salvia",
+      "autore": "Mirko",
+      "tipo_piatto": "Secondi",
+      "ingrediente_principale": "Carne",
+      "regione": "",
+      "ingredienti": "Ingredienti\n4 fettine sottili di petto di pollo\n4 fette di prosciutto crudo\n4 fette di formaggio filante — scamorza, provola dolce o fontina\n6–8 foglie di salvia fresca\n30 g di burro\n1 cucchiaio di olio extravergine d'oliva\n80 ml circa di vino bianco secco\nfarina q.b.\nsale, pochissimo\n1 spicchio d'aglio intero, facoltativo",
+      "preparazione": "Preparazione\n1. Prepariamo gli involtini\nSe le fettine di pollo sono un po' spesse, battile delicatamente con il batticarne tra due fogli di carta forno.\nSu ogni fettina metti:\nuna fetta di prosciutto crudo;\nuna fetta di formaggio;\n1–2 foglie di salvia.\nNon aggiungerei sale: il prosciutto crudo è già saporito.\nArrotola bene la carne formando l'involtino e chiudilo con uno stecchino.\nPassa gli involtini velocemente nella farina, eliminando quella in eccesso.\n2. La rosolatura\nIn una padella larga metti:\nolio EVO;\nburro;\nlo spicchio d'aglio intero, se lo vuoi.\nQuando il burro è sciolto e ben caldo, aggiungi gli involtini.\nFalli rosolare a fiamma medio-alta, girandoli delicatamente, fino a ottenere una bella doratura uniforme su tutti i lati.\nCi vorranno circa 5–6 minuti.\n3. Sfumiamo\nQuando sono ben dorati, sfuma con 80 ml di vino bianco.\nLascia evaporare l'alcol per circa 1 minuto, poi abbassa la fiamma.\nAggiungi altre 2–3 foglie di salvia direttamente nel fondo di cottura.\nCopri e lascia cuocere per altri 5–7 minuti, girando gli involtini una volta.\nSe il fondo dovesse asciugarsi troppo, aggiungi un piccolo goccio d'acqua calda.\n4. Il sughetto\nTogli gli involtini dalla padella e tienili al caldo.\nAlza leggermente la fiamma sotto il fondo di cottura e fallo restringere per 1–2 minuti.\nIl risultato deve essere una salsina lucida, al burro e vino, con il profumo della salvia.\nRimetti gli involtini nella padella e falli insaporire per circa 30 secondi.",
+      "tempo_preparazione": "",
+      "tempo_cottura": "",
+      "persone": "2",
+      "difficolta": "Facile",
+      "note": "",
+      "foto_url": "https://raw.githubusercontent.com/MassMirko/IlMioRicettario/main/community/immagini/ricetta_27.png",
+      "foto_originale": "https://raw.githubusercontent.com/MassMirko/IlMioRicettario/main/community/immagini/proposte/64cdac363be3c252c0efc7607df08f92e764c085e88d1d1186e655657c0f16f0.png",
+      "foto_percorso": "community/immagini/ricetta_27.png",
+      "video_link": "",
+      "data_pubblicazione": "2026-10-08T09:34:17+00:00"
     }
   ]
 }
