@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "ultimo_aggiornamento": "2026-10-07T19:28:19+00:00",
+  "ultimo_aggiornamento": "2026-10-08T09:03:34+00:00",
   "ricette": [
     {
       "id": 5,
@@ -253,6 +253,27 @@
       "foto_percorso": "community/immagini/ricetta_18.jpg",
       "video_link": "",
       "data_pubblicazione": "2026-10-07T19:28:19+00:00"
+    },
+    {
+      "id": 24,
+      "issue": 24,
+      "nome": "Involtini di manzo con uovo sodo, prosciutto cotto e sottiletta alla sa buta va nient!",
+      "autore": "Mirko",
+      "tipo_piatto": "Secondi",
+      "ingrediente_principale": "Carne",
+      "regione": "",
+      "ingredienti": "Ingredienti per 2 persone\nPer gli involtini\n2 fettine di manzo\n2 uova\n2 fette di prosciutto cotto\n2 sottilette\nolio EVO q.b.\n½ bicchiere di vino bianco\nSale e Pepe\nPer il contorno\n1 zucchina grande\nolio EVO\nSale e Pepe",
+      "preparazione": "Preparazione delle uova sode: mettile in un pentolino, coprile con acqua fredda e porta a ebollizione, cuocile per 9-10 minuti. Sgusciale.\nPreparazione degli involtini: stendi le due fettine di manzo e su ognuna sistema: 1 fetta di prosciutto cotto, 1 sottiletta e 1 uovo sodo intero, disposto al centro, avvolgi completamente l'uovo con la carne, formando un involtino ben stretto. Chiudi con stuzzicadenti, facendo attenzione che rimanga completamente racchiuso.\nCottura : Scalda l'olio in una padella, adagia gli involtini e falli rosolare bene su tutti i lati, girandoli delicatamente. Sfuma con il vino bianco e lascia evaporare. Abbassa la fiamma, copri e cuoci per circa 10-12 minuti, girandoli ogni tanto. Regola di sale e pepe.\nZucchine: taglia le zucchine a rondelle o mezze rondelle. Scalda l'olio, aggiungi le zucchine e cuocile a fuoco medio-alto per 7-8 minuti",
+      "tempo_preparazione": "",
+      "tempo_cottura": "",
+      "persone": "2",
+      "difficolta": "Facile",
+      "note": "\"ALLA SA BUTA VIA NIENT!\" in milanese significa \"ALLA NON SI BUTTA VIA NIENTE\". Stasera avevo un po' di cosette da eliminare dal frigo e allorqa... è andata così!",
+      "foto_url": "https://raw.githubusercontent.com/MassMirko/IlMioRicettario/main/community/immagini/ricetta_24.jpg",
+      "foto_originale": "https://raw.githubusercontent.com/MassMirko/IlMioRicettario/main/community/immagini/proposte/20ef61bf9f19a38846d5e3ffeb990ddaa900dc1977cca5bf966366ee52bc7e08.jpg",
+      "foto_percorso": "community/immagini/ricetta_24.jpg",
+      "video_link": "",
+      "data_pubblicazione": "2026-10-08T09:03:34+00:00"
     }
   ]
 }
