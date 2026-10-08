@@ -1,6 +1,6 @@
 {
-    "notes":  "Ripristinato il pulsante GUARDA VIDEO nelle schede ricette e corretti gli errori della versione precedente.",
+    "notes":  "Ripristinato il pulsante GUARDA VIDEO e corretti gli errori precedenti.",
     "version_code":  10,
     "version":  "1.0.4",
-    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v1.0.4-android/IlMioRicettario_Android_v1.0.4.apk"
+    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v1.0.4-android/app-release.apk"
 }
