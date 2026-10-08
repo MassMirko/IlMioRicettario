@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "ultimo_aggiornamento": "2026-10-08T09:03:34+00:00",
+  "ultimo_aggiornamento": "2026-10-08T09:19:04+00:00",
   "ricette": [
     {
       "id": 5,
@@ -274,6 +274,27 @@
       "foto_percorso": "community/immagini/ricetta_24.jpg",
       "video_link": "",
       "data_pubblicazione": "2026-10-08T09:03:34+00:00"
+    },
+    {
+      "id": 25,
+      "issue": 25,
+      "nome": "Involtini di manzo mortadella e sottiletta",
+      "autore": "Mirko",
+      "tipo_piatto": "Secondi",
+      "ingrediente_principale": "Carne",
+      "regione": "",
+      "ingredienti": "4 fettine sottili di fesa o noce di manzo\n4 fette di mortadella\n2 sottilette\nOlio EVO\nSale e pepe nero macinato al momento",
+      "preparazione": "1. Stendi le fettine di manzo su un tagliere. Adagia su ciascuna fettina una fetta di mortadella e posiziona al centro un pezzo di sottiletta. Arrotola strettamente la carne formando un involtino e sigilla i lati infilzandoli con gli stuzzicadenti in modo che il formaggio non fuoriesca durante la cottura.\n2. Scalda un filo d'olio extravergine d'oliva in padella a fuoco medio-alto. Disponi gli involtini nella padella e insaporiscili in superficie con una spolverata generosa di pepe nero ed un pizzico di sale. Rosola gli involtini su tutti i lati per circa 6-8 minuti totali, girandoli delicatamente finché la carne risulta ben dorata all'esterno e il formaggio all'interno inizia a sciogliersi.",
+      "tempo_preparazione": "",
+      "tempo_cottura": "",
+      "persone": "2",
+      "difficolta": "Facile",
+      "note": "Servi subito ben caldi accompagnando il piatto con un buon bicchiere di Primitivo",
+      "foto_url": "https://raw.githubusercontent.com/MassMirko/IlMioRicettario/main/community/immagini/ricetta_25.png",
+      "foto_originale": "https://raw.githubusercontent.com/MassMirko/IlMioRicettario/main/community/immagini/proposte/40f0f247b877442dd6b4146eca3ec5582f82dbccd9457c2d6e6bd7a65ab40e32.png",
+      "foto_percorso": "community/immagini/ricetta_25.png",
+      "video_link": "",
+      "data_pubblicazione": "2026-10-08T09:19:04+00:00"
     }
   ]
 }
