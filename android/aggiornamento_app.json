@@ -1,6 +1,6 @@
 {
-    "notes":  "Ripristinato il pulsante GUARDA VIDEO e corretti gli errori precedenti.",
-    "version_code":  10,
-    "version":  "1.0.4",
-    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v1.0.4-android/app-release.apk"
+    "notes":  "Versione 2.0.0: Community e supporto ai link video.",
+    "version_code":  11,
+    "version":  "2.0.0",
+    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.0.0-android/IlMioRicettario-Android-v2.0.0.apk"
 }
