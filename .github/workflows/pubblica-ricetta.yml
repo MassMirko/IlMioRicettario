@@ -169,13 +169,18 @@ jobs:
 
           note = campo(
               "Note e consigli",
-              "Foto della ricetta"
+              "Link video"
           )
 
           foto = campo(
               "Foto della ricetta",
               "Conferma pubblicazione"
           )
+
+          video_link = campo(
+              "Link video",
+              "Foto della ricetta"
+          ).strip()
 
           # Cerca prima la foto nel campo dedicato.
           # Se GitHub ha inserito l'allegato in un altro punto della Issue,
@@ -290,7 +295,7 @@ jobs:
               "foto_url": foto_url,
               "foto_originale": foto_originale,
               "foto_percorso": foto_percorso,
-              "video_link": "",
+              "video_link": video_link,
               "data_pubblicazione": adesso
           }
 

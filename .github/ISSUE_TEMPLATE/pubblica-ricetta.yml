@@ -110,6 +110,13 @@ body:
       label: "Note e consigli"
       placeholder: "Eventuali note o consigli..."
 
+  - type: input
+    id: video
+    attributes:
+      label: "Link video"
+      description: "Facoltativo - collegamento al video della preparazione"
+      placeholder: "https://www.youtube.com/watch?v=..."
+
   - type: textarea
     id: foto
     attributes:
