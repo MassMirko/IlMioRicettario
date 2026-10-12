@@ -1,7 +1,6 @@
-﻿{
-    "version":  "1.0.6",
-    "setup_url":  "https://github.com/MassMirko/IlMioRicettario/releases/latest/download/IlMioRicettario_Setup.exe",
-    "sha256":  "238A3A5B111FF6F60B74BE5810EA12F61401DCF0CCDCE7AA00EF0BCDC8496D1E",
-    "notes":  "Aggiornamento alla versione 1.0.6"
+{
+  "version": "1.1.0",
+  "setup_url": "https://github.com/MassMirko/IlMioRicettario/releases/download/v1.1.0/IlMioRicettario_Setup.exe",
+  "sha256": "27267C90EB93BB5DA93FDC72FF0089A9A88E839381EF345486BDCCA8F2966102",
+  "notes": "Aggiornamento Windows 1.1.0 del 12/10/2026: integrazione Community GitHub e Cloudflare."
 }
-
