@@ -1,6 +1,6 @@
 {
-    "notes":  "Versione 2.0.3: menu a tendina, sei categorie, miglioramenti HOME e navigazione.",
-    "version_code":  14,
-    "version":  "2.0.3",
-    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.0.3-android/IlMioRicettario-Android-v2.0.3.apk"
+    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.0.4-android/IlMioRicettario-Android-v2.0.4.apk",
+    "version_code":  15,
+    "version":  "2.0.4",
+    "notes":  "Versione 2.0.4: Community ufficiale disponibile e sezione TEST nascosta."
 }
