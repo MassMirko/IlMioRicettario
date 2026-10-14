@@ -1,6 +1,6 @@
 {
-    "notes":  "Versione 2.0.2: aggiornamenti Community TEST e importazione ricette.",
-    "version_code":  13,
-    "version":  "2.0.2",
-    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.0.2-android/IlMioRicettario-Android-v2.0.2.apk"
+    "notes":  "Versione 2.0.3: menu a tendina, sei categorie, miglioramenti HOME e navigazione.",
+    "version_code":  14,
+    "version":  "2.0.3",
+    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.0.3-android/IlMioRicettario-Android-v2.0.3.apk"
 }
