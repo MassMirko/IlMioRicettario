@@ -1,6 +1,6 @@
 {
-    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.0.5-android/IlMioRicettario-Android-v2.0.5.apk",
-    "version_code":  16,
-    "version":  "2.0.5",
-    "notes":  "Versione 2.0.5: autore nelle ricette personali e pulsante LEGGIMI predisposto e disabilitato."
+    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.0.6-android/IlMioRicettario-Android-v2.0.6.apk",
+    "version_code":  17,
+    "version":  "2.0.6",
+    "notes":  "Versione 2.0.6: migliorata la visibilita del pulsante LEGGIMI, sempre disabilitato."
 }
