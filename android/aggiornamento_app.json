@@ -1,6 +1,6 @@
-{
-    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.0.4-android/IlMioRicettario-Android-v2.0.4.apk",
-    "version_code":  15,
-    "version":  "2.0.4",
-    "notes":  "Versione 2.0.4: Community ufficiale disponibile e sezione TEST nascosta."
+﻿{
+    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.0.5-android/IlMioRicettario-Android-v2.0.5.apk",
+    "version_code":  16,
+    "version":  "2.0.5",
+    "notes":  "Versione 2.0.5: autore nelle ricette personali e pulsante LEGGIMI predisposto e disabilitato."
 }
