@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "data_version": "1.6.51",
-  "created_at": "2026-10-21T18:08:05+02:00",
+  "data_version": "1.6.52",
+  "created_at": "2026-10-21T18:08:13+02:00",
   "recipe_count": 2,
   "image_count": 2,
   "database_file": "aggiornamento.db",
