@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "data_version": "1.6.52",
-  "created_at": "2026-10-21T18:08:13+02:00",
+  "data_version": "1.6.53",
+  "created_at": "2026-10-21T18:10:07+02:00",
   "recipe_count": 2,
   "image_count": 2,
   "database_file": "aggiornamento.db",
-  "database_sha256": "e3c61326b86595e215c6f10abf34cfe4b14696f19eaad840f7e4d3ae868edac0",
+  "database_sha256": "2d9a9336f5b80117bec9564cac3d864f913ba1c11c4e05cecad36a76bbd3512f",
   "images_dir": "immagini"
 }
