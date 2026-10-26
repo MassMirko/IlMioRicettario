@@ -1,6 +1,6 @@
 {
-    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.0.6-android/IlMioRicettario-Android-v2.0.6.apk",
-    "version_code":  17,
-    "version":  "2.0.6",
-    "notes":  "Versione 2.0.6: migliorata la visibilita del pulsante LEGGIMI, sempre disabilitato."
+    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.0.8-android/IlMioRicettario_Android_v2.0.8_RELEASE_FINALE.apk",
+    "version_code":  19,
+    "version":  "2.0.8",
+    "notes":  "Android v2.0.8: ricette personali, fotografie, bozze, video e miglioramenti Community."
 }
