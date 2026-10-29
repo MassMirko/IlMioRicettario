@@ -1,6 +1,6 @@
 {
-    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.0.8-android/IlMioRicettario_Android_v2.0.8_RELEASE_FINALE.apk",
-    "version_code":  19,
-    "version":  "2.0.8",
-    "notes":  "Android v2.0.8: ricette personali, fotografie, bozze, video e miglioramenti Community."
+    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v3.0.0-android/IlMioRicettario_Android_v3.0.0_RELEASE_FINALE.apk",
+    "version_code":  20,
+    "version":  "3.0.0",
+    "notes":  "Android v3.0.0: HOME adattiva, LEGGIMI aggiornato, catalogo online, ricette personali, fotografie e Community."
 }
