@@ -147,8 +147,14 @@ def main():
     apply = os.environ.get('SYNC_APPLY', 'false').strip().lower() == 'true'
     db = D1()
     if db.production:
-        require(os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch',
-                'BLOCCO: PRODUZIONE consentita soltanto con avvio manuale')
+        evento = os.environ.get('GITHUB_EVENT_NAME')
+        automatico = (
+            evento == 'push'
+            and os.environ.get('GITHUB_REF') == 'refs/heads/main'
+            and os.environ.get('SYNC_AUTO_AFTER_TEST') == 'true'
+        )
+        require(evento == 'workflow_dispatch' or automatico,
+                'BLOCCO: PRODUZIONE consentita solo manualmente o dopo TEST su main')
         if apply:
             require(os.environ.get('SYNC_PRODUCTION_CONFIRM') == 'CONFERMO_PRODUZIONE',
                     'BLOCCO: manca la conferma esplicita per PRODUZIONE')
