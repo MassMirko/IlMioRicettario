@@ -8,11 +8,24 @@ on:
       - 'sync/manifest.json'
   workflow_dispatch:
     inputs:
-      applica_sul_test:
-        description: "Applica aggiornamenti soltanto a Cloudflare TEST (false = sola lettura)"
+      destinazione:
+        description: "Database di destinazione"
+        type: choice
+        required: true
+        options:
+          - TEST
+          - PRODUZIONE
+        default: TEST
+      applica:
+        description: "Applica aggiornamenti (false = sola lettura)"
         type: boolean
         required: true
         default: false
+      conferma_produzione:
+        description: "Per scrivere in PRODUZIONE digitare CONFERMO_PRODUZIONE"
+        type: string
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -31,7 +44,9 @@ jobs:
         env:
           CF_ACCOUNT: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CF_DATABASE_ID: f1fc18be-82ea-446a-911d-06b9a9f78b2e
+          CF_DATABASE_ID: ${{ github.event_name == 'workflow_dispatch' && inputs.destinazione == 'PRODUZIONE' && 'b22d8825-9259-4cce-92f5-8124fe6f8c7a' || 'f1fc18be-82ea-446a-911d-06b9a9f78b2e' }}
           GH_TOKEN: ${{ github.token }}
-          SYNC_APPLY: ${{ github.event_name == 'push' && 'true' || inputs.applica_sul_test }}
+          SYNC_APPLY: ${{ github.event_name == 'push' && 'true' || inputs.applica }}
+          SYNC_PRODUCTION_CONFIRM: ${{ inputs.conferma_produzione }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
         run: python3 scripts/sync_catalogo.py

@@ -25,6 +25,7 @@ ARCHIVE = ROOT / 'sync' / 'ricettario_dati.zip'
 MANIFEST = ROOT / 'sync' / 'manifest.json'
 REPO = 'MassMirko/IlMioRicettario'
 TEST_DB = 'f1fc18be-82ea-446a-911d-06b9a9f78b2e'
+PROD_DB = 'b22d8825-9259-4cce-92f5-8124fe6f8c7a'
 COLS = ('nome', 'autore', 'tipo_piatto', 'ingrediente_principale', 'regione',
         'ingredienti', 'preparazione', 'tempo_preparazione', 'tempo_cottura',
         'persone', 'difficolta', 'note', 'video_link')
@@ -62,7 +63,8 @@ class D1:
         database = os.environ.get('CF_DATABASE_ID', '').strip()
         self.token = os.environ.get('CF_TOKEN', '').strip()
         require(len(account) == 32 and all(c in '0123456789abcdef' for c in account), 'Account ID Cloudflare mancante o errato')
-        require(database == TEST_DB, 'BLOCCO DI SICUREZZA: consentito soltanto D1 TEST')
+        require(database in (TEST_DB, PROD_DB), 'Database D1 non autorizzato')
+        self.production = database == PROD_DB
         require(bool(self.token), 'Token Cloudflare mancante')
         self.url = f'https://api.cloudflare.com/client/v4/accounts/{account}/d1/database/{database}/query'
 
@@ -143,8 +145,15 @@ def sql_value(v) -> str:
 
 def main():
     apply = os.environ.get('SYNC_APPLY', 'false').strip().lower() == 'true'
-    print('TARGET: CLOUDFLARE D1 TEST; MODALITA:', 'APPLICA' if apply else 'ANTEPRIMA (sola lettura)')
     db = D1()
+    if db.production:
+        require(os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch',
+                'BLOCCO: PRODUZIONE consentita soltanto con avvio manuale')
+        if apply:
+            require(os.environ.get('SYNC_PRODUCTION_CONFIRM') == 'CONFERMO_PRODUZIONE',
+                    'BLOCCO: manca la conferma esplicita per PRODUZIONE')
+    print('TARGET:', 'PRODUZIONE' if db.production else 'TEST',
+          'MODALITA:', 'APPLICA' if apply else 'ANTEPRIMA (sola lettura)')
     rows, images = source_rows()
     existing_refs = {str(x['id_originale']): x for x in db.query(
         "SELECT id_originale, ricetta_chiave, dati_originali_json FROM riferimenti_catalogo_unificato WHERE origine='sync'")}
