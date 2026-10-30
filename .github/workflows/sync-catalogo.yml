@@ -1,6 +1,11 @@
 name: Sincronizzazione catalogo unificato
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'sync/ricettario_dati.zip'
+      - 'sync/manifest.json'
   workflow_dispatch:
     inputs:
       applica_sul_test:
@@ -28,5 +33,5 @@ jobs:
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CF_DATABASE_ID: f1fc18be-82ea-446a-911d-06b9a9f78b2e
           GH_TOKEN: ${{ github.token }}
-          SYNC_APPLY: ${{ inputs.applica_sul_test }}
+          SYNC_APPLY: ${{ github.event_name == 'push' && 'true' || inputs.applica_sul_test }}
         run: python3 scripts/sync_catalogo.py
