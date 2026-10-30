@@ -189,7 +189,20 @@ def main():
                 proposals.append(('update' if (source_changed or image_changed) else 'baseline', rid, key, row, prior, needs_image))
         else:
             title = str(row['nome']).strip().casefold()
-            require(not names.get(title), f'Nuova ricetta ID {rid} ha un titolo gia nel catalogo, serve verifica UUID: {row["nome"]}')
+            matches = names.get(title, [])
+            if matches:
+                require(db.production and rid == '69'
+                        and title == 'tagliata di manzo alla piastra con cavolo cappuccio bianco in insalata'
+                        and matches == ['f050d6db-63a1-41ed-adcf-ad1f14775daa']
+                        and catalog[matches[0]]['stato'] == 'approvata',
+                        f'Corrispondenza ricetta non autorizzata: {row["nome"]}')
+                linked = db.query(
+                    "SELECT ricetta_chiave FROM riferimenti_catalogo_unificato "
+                    "WHERE origine='cloudflare' AND id_originale='12'")
+                require(len(linked) == 1 and linked[0]['ricetta_chiave'] == matches[0],
+                        'Riferimento cloudflare/12 inatteso: STOP')
+                proposals.append(('link', rid, matches[0], row, None, False))
+                continue
             key = str(uuid.uuid5(uuid.NAMESPACE_URL, f'https://github.com/{REPO}/sync/{rid}'))
             require(key not in catalog, f'Collisione UUID per ricetta Windows ID {rid}')
             proposals.append(('new', rid, key, row, None, True))
@@ -218,7 +231,14 @@ def main():
         payload.update({k: row.get(k) for k in ORIGINAL_COLS})
         payload[META_PHOTO] = images[rid][1]
         data_json = json.dumps(payload, ensure_ascii=False, separators=(',', ':'))
-        if kind == 'new':
+        if kind == 'link':
+            statements = [(
+                "INSERT INTO riferimenti_catalogo_unificato "
+                "(origine, id_originale, ricetta_chiave, dati_originali_json) "
+                "VALUES ('sync', ?, ?, ?) "
+                "ON CONFLICT(origine, id_originale) DO NOTHING",
+                [rid, key, data_json])]
+        elif kind == 'new':
             fields = ('chiave',) + COLS + ('foto_url', 'foto_riferimento', 'stato')
             vals = [key] + [sql_value(row.get(c)) for c in COLS] + [photo_url, images[rid][3], 'approvata']
             sql = (f'INSERT INTO catalogo_ricette_unificato ({", ".join(fields)}) '
