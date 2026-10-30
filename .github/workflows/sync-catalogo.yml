@@ -2,39 +2,31 @@ name: Sincronizzazione catalogo unificato
 
 on:
   workflow_dispatch:
+    inputs:
+      applica_sul_test:
+        description: "Applica aggiornamenti soltanto a Cloudflare TEST (false = sola lettura)"
+        type: boolean
+        required: true
+        default: false
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: sync-catalogo-unificato
+  cancel-in-progress: false
 
 jobs:
-  verifica-test:
+  sincronizza-test:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 15
     steps:
-      - name: Verifica accesso Cloudflare D1 TEST
-        shell: bash
+      - uses: actions/checkout@v4
+      - name: Sincronizza lo ZIP Windows con il catalogo D1 TEST
         env:
           CF_ACCOUNT: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        run: |
-          set -euo pipefail
-
-          test -n "$CF_ACCOUNT"
-          test -n "$CF_TOKEN"
-
-          risposta=$(curl -fsS \
-            --retry 2 \
-            -X POST \
-            -H "Authorization: Bearer $CF_TOKEN" \
-            -H "Content-Type: application/json" \
-            --data '{"sql":"SELECT COUNT(*) AS totale FROM catalogo_ricette_unificato;"}' \
-            "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT/d1/database/f1fc18be-82ea-446a-911d-06b9a9f78b2e/query")
-
-          echo "$risposta" | jq -e \
-            '.success == true and .result[0].success == true and (.result[0].results[0].totale | type) == "number"' \
-            > /dev/null
-
-          totale=$(echo "$risposta" | jq -r '.result[0].results[0].totale')
-
-          echo "D1 TEST accessibile: $totale ricette"
-          echo "Verifica completata senza scritture"
+          CF_DATABASE_ID: f1fc18be-82ea-446a-911d-06b9a9f78b2e
+          GH_TOKEN: ${{ github.token }}
+          SYNC_APPLY: ${{ inputs.applica_sul_test }}
+        run: python3 scripts/sync_catalogo.py
