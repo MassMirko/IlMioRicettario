@@ -1,7 +1,7 @@
 {
-    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v3.0.1-android/IlMioRicettario_Android_v3.0.1_RELEASE_FINALE.apk",
-    "version_code":  21,
-    "version":  "3.0.1",
-    "notes":  "Android v3.0.1: HOME adattiva, LEGGIMI aggiornato, catalogo online, ricette personali, fotografie e Community. Installazione pulita collaudata su REALME con Play Protect attivo.",
-    "apk_sha256":  "2b6944779a0bb3407929a208465881e0a553f96274287154a121848544a32ba7"
+    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v3.0.2-android/IlMioRicettario_Android_v3.0.2_RELEASE_FINALE.apk",
+    "version_code":  22,
+    "version":  "3.0.2",
+    "notes":  "Android v3.0.2: interfaccia compatta, PREFERITI personali e online unificati, fotografie migliorate. Trasferimento automatico dopo pubblicazione non ancora verificato su caso reale. Mantieni Play Protect attivo.",
+    "apk_sha256":  "6ea78a798be90c7dbef1092159ade57ad04b1effb1d9408a9a13a9b96f0779e0"
 }
