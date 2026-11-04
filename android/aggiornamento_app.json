@@ -1,7 +1,7 @@
 {
-    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v3.0.4-android/IlMioRicettario_Android_v3.0.4_RELEASE_FINALE.apk",
-    "version_code":  24,
-    "version":  "3.0.4",
-    "notes":  "Android v3.0.4: ripristinato CONTATTA nella HOME con formulario Cloudflare interno. Collaudo visivo LDPlayer OK. Invio e ricezione ancora da verificare. Mantenere Google Play Protect attivo.",
-    "apk_sha256":  "210ac411cae9b4fb88c349fc68a246eee9b660c560ef2ce5f46122ac43e0808d"
+    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v3.0.5-android/IlMioRicettario_Android_v3.0.5_RELEASE_FINALE.apk",
+    "version_code":  25,
+    "version":  "3.0.5",
+    "notes":  "Android v3.0.5: HOME di CONTATTA fisso in basso. APK ottimizzato R8 sotto 3 MB. Collaudo LDPlayer OK. Invio e ricezione messaggi ancora da verificare. Mantenere Google Play Protect attivo.",
+    "apk_sha256":  "082b9947fcdc26ed8b736b9a7e534bc64ff726ab95aa1783277db453be260dfa"
 }
