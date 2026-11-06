@@ -1,7 +1,7 @@
 {
-    "notes":  "PDF locale: visualizza, stampa e salva.",
-    "version_code":  26,
-    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v3.0.6-android/IlMioRicettario_Android_v3.0.6_RELEASE_FINALE.apk",
-    "apk_sha256":  "55e214b0849744cbbf75bcf92016ebb770f874faf72e26a6ae36e323e12b639b",
-    "version":  "3.0.6"
+    "notes":  "Versione stabile Android 3.0.5",
+    "version_code":  25,
+    "version":  "3.0.5",
+    "apk_sha256":  "082b9947fcdc26ed8b736b9a7e534bc64ff726ab95aa1783277db453be260dfa",
+    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v3.0.5-android/IlMioRicettario_Android_v3.0.5_RELEASE_FINALE.apk"
 }
