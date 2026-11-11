@@ -1,7 +1,7 @@
 {
-    "notes":  "Android 3.0.8 stabile - collaudata su Realme: PDF, ricerca, navigazione e catalogo online/offline",
-    "version_code":  28,
-    "version":  "3.0.8",
-    "apk_sha256":  "ade2e309643c4bbb0d9bddf9e0ea091f583c8cb9f1fbc025d9b1d7bab9d3b884",
-    "apk_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v3.0.8-android/IlMioRicettario_Android_v3.0.8_RELEASE_FINALE.apk"
+  "notes": "Android 3.0.9 - miglioramenti 3.0.8, ricevute Community e verifica approvazioni",
+  "version_code": 29,
+  "version": "3.0.9",
+  "apk_sha256": "e103f7e5db00da292f96442ba1dbe8b018df94b9de6b2e2220aa1ad1a98f8b6d",
+  "apk_url": "https://github.com/MassMirko/IlMioRicettario/releases/download/v3.0.9-android/IlMioRicettario_Android_v3.0.9.apk"
 }
