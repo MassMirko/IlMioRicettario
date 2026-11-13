@@ -1,6 +1,6 @@
 {
-  "version": "2.2.2",
-  "setup_url": "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.2.2/IlMioRicettario_2.2.2_UTENTI_Setup.exe",
-  "sha256": "506A6F10E5753299DC182E50EC66F1F099C9573697CC3BD9155124F64B9F3D18",
-  "notes": "Aggiornamento ufficiale Windows CLIENT 2.2.2."
+  "version": "2.2.3",
+  "setup_url": "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.2.3/IlMioRicettario_2.2.3_UTENTI_Setup.exe",
+  "sha256": "4B30ED540BD785067A3AC7149F3DDDC68202F0F07A4E5A371D34C6AC774CE61E",
+  "notes": "Aggiornamento ufficiale Windows CLIENT 2.2.3. CONTATTA integrato: invio, risposte ed eliminazione dalla lista locale."
 }
