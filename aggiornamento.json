@@ -1,6 +1,6 @@
 {
-    "version":  "2.2.4",
-    "setup_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.2.4/IlMioRicettario_2.2.4_UTENTI_Setup.exe",
-    "sha256":  "467F9FC0784648B9367BB71A7B2373EB7FDF484EB55BE109C26DFD7FC284E832",
-    "notes":  "Aggiornamento ufficiale Windows CLIENT 2.2.4."
+    "version":  "2.2.5",
+    "setup_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.2.5/IlMioRicettario_2.2.5_UTENTI_Setup.exe",
+    "sha256":  "59DAD862C789DDE577B943AE4635EFFEF1C46AE6A34FA94C42EEB179F6A17907",
+    "notes":  "Correzione doppioni Community, filtro categorie e guida LEGGIMI."
 }
