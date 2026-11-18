@@ -1,6 +1,6 @@
 {
-    "version":  "2.2.6",
-    "setup_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.2.6/IlMioRicettario_2.2.6_UTENTI_Setup.exe",
-    "sha256":  "14B3DC7C7F2C301F36AA081B9FD78DDBF0F1495FCDA13F6BE2AC0C84C480A363",
-    "notes":  "Aggiunto il campo facoltativo Calorie per porzione (kcal)."
+    "version":  "2.2.7",
+    "setup_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.2.7/IlMioRicettario_2.2.7_UTENTI_Setup.exe",
+    "sha256":  "E53361D8083CED0B07BD8A1262BDCFF6D032F8FE81D9BD6352BCFCD62AF0B4A2",
+    "notes":  "Calorie per porzione sempre visibili in scheda e PDF. Se assenti, mostra NON INDICATO."
 }
