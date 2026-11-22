@@ -1,6 +1,6 @@
 {
-    "version":  "2.2.7",
-    "setup_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.2.7/IlMioRicettario_2.2.7_UTENTI_Setup.exe",
-    "sha256":  "E53361D8083CED0B07BD8A1262BDCFF6D032F8FE81D9BD6352BCFCD62AF0B4A2",
-    "notes":  "Calorie per porzione sempre visibili in scheda e PDF. Se assenti, mostra NON INDICATO."
+    "version":  "2.2.9",
+    "setup_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.2.9/IlMioRicettario_2.2.9_UTENTI_Setup.exe",
+    "sha256":  "B86F3DCFD9FB51DC1EAC1483D33154DDD49BE401414463AB014F15A0D66751C4",
+    "notes":  "Ultime 10 ricette online, aggiornamento automatico HOME e correzione chiusura schede."
 }
