@@ -1,6 +1,1 @@
-{
-    "version":  "2.2.9",
-    "setup_url":  "https://github.com/MassMirko/IlMioRicettario/releases/download/v2.2.9/IlMioRicettario_2.2.9_UTENTI_Setup.exe",
-    "sha256":  "B86F3DCFD9FB51DC1EAC1483D33154DDD49BE401414463AB014F15A0D66751C4",
-    "notes":  "Ultime 10 ricette online, aggiornamento automatico HOME e correzione chiusura schede."
-}
+{"version":"2.2.10","setup_url":"https://github.com/MassMirko/IlMioRicettario/releases/download/v2.2.10/IlMioRicettario_2.2.10_UTENTI_Setup.exe","sha256":"D9D80653A4455F9854E04B3C31B9104CBD6A4532BC022048E44988F857851DC9","notes":"Scroll continuo, barra corretta e filtro tipo di piatto."}
